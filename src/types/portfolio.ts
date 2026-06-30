@@ -9,10 +9,33 @@ export type SiteConfig = {
   supportedLocales: readonly Locale[];
 };
 
+export type PortfolioLink = {
+  label: LocalizedText;
+  href: `#${string}` | `/${string}` | `https://${string}` | `mailto:${string}`;
+};
+
+export type ProfileHighlight = {
+  label: LocalizedText;
+  value: LocalizedText;
+};
+
 export type ProfileConfig = {
   displayName: string;
   role: LocalizedText;
   shortBio: LocalizedText;
+  hero: {
+    eyebrow: LocalizedText;
+    headline: LocalizedText;
+    description: LocalizedText;
+    primaryAction: PortfolioLink;
+    secondaryAction: PortfolioLink;
+  };
+  about: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    paragraphs: readonly LocalizedText[];
+    highlights: readonly ProfileHighlight[];
+  };
 };
 
 export type NavigationItem = {

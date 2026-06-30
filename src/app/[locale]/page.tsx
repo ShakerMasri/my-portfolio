@@ -1,13 +1,50 @@
 import { notFound } from "next/navigation";
-import { profile } from "@/config";
-import { getLocalizedText, isLocale } from "@/i18n/locales";
-import { Container } from "@/components/ui/container";
+import { AboutSection } from "@/components/sections/about-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { Section } from "@/components/ui/section";
+import { isLocale } from "@/i18n/locales";
 
 type HomePageProps = Readonly<{
   params: Promise<{
     locale: string;
   }>;
 }>;
+
+const upcomingSections = [
+  {
+    id: "skills",
+    title: {
+      en: "Skills",
+      ar: "المهارات",
+    },
+    text: {
+      en: "Next we will organize your real technical stack into clear categories.",
+      ar: "بعد ذلك سننظم التقنيات التي تستخدمها فعلاً ضمن تصنيفات واضحة.",
+    },
+  },
+  {
+    id: "projects",
+    title: {
+      en: "Projects",
+      ar: "المشاريع",
+    },
+    text: {
+      en: "Then we will present selected projects with honest scope, stack, and links.",
+      ar: "ثم سنعرض مشاريع مختارة مع توضيح النطاق، التقنيات، والروابط بشكل صادق.",
+    },
+  },
+  {
+    id: "contact",
+    title: {
+      en: "Contact",
+      ar: "تواصل",
+    },
+    text: {
+      en: "Finally we will add safe contact and social links without exposing private information.",
+      ar: "أخيراً سنضيف روابط تواصل آمنة بدون كشف معلومات خاصة غير ضرورية.",
+    },
+  },
+] as const;
 
 export default async function Home({ params }: HomePageProps) {
   const { locale: localeParam } = await params;
@@ -17,102 +54,41 @@ export default async function Home({ params }: HomePageProps) {
   }
 
   return (
-    <Container className="py-16 sm:py-24">
-      <section className="max-w-3xl">
-        <p className="text-sm font-medium uppercase tracking-[0.24em] text-zinc-500">
-          {localeParam === "en" ? "Portfolio foundation" : "أساس الملف الشخصي"}
-        </p>
+    <>
+      <HeroSection locale={localeParam} />
+      <AboutSection locale={localeParam} />
 
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-          {profile.displayName}
-        </h1>
-
-        <p className="mt-4 text-xl text-zinc-700">
-          {getLocalizedText(profile.role, localeParam)}
-        </p>
-
-        <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">
-          {getLocalizedText(profile.shortBio, localeParam)}
-        </p>
-      </section>
-
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <section
-          id="about"
-          className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8"
-        >
-          <h2 className="text-lg font-semibold text-zinc-950">
-            {localeParam === "en" ? "Layout shell is ready" : "هيكل الصفحة جاهز"}
-          </h2>
-
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
-            <li>
-              {localeParam === "en"
-                ? "The page now has a reusable header, footer, and content container."
-                : "أصبحت الصفحة تحتوي على رأس وتذييل وحاوية محتوى قابلة لإعادة الاستخدام."}
-            </li>
-            <li>
-              {localeParam === "en"
-                ? "Navigation links are localized and point to future page sections."
-                : "روابط التنقل مترجمة وتشير إلى أقسام الصفحة القادمة."}
-            </li>
-            <li>
-              {localeParam === "en"
-                ? "The language switcher works without adding any new dependency."
-                : "مبدّل اللغة يعمل بدون إضافة أي مكتبة جديدة."}
-            </li>
-          </ul>
-        </section>
-
-        <aside className="rounded-3xl border border-zinc-200 bg-zinc-950 p-6 text-white shadow-sm sm:p-8">
-          <h2 className="text-lg font-semibold">
-            {localeParam === "en" ? "Next checkpoint" : "المرحلة القادمة"}
-          </h2>
-          <p className="mt-4 text-sm leading-7 text-zinc-300">
-            {localeParam === "en"
-              ? "Next, we will replace these placeholders with real hero, about, skills, projects, and contact sections."
-              : "بعد ذلك سنستبدل هذه العناصر المؤقتة بأقسام حقيقية للمقدمة، عني، المهارات، المشاريع، والتواصل."}
-          </p>
-        </aside>
-      </div>
-
-      <div className="mt-6 grid gap-6 md:grid-cols-3">
-        {[
-          {
-            id: "skills",
-            title: localeParam === "en" ? "Skills" : "المهارات",
-            text:
-              localeParam === "en"
-                ? "A placeholder for your technical stack."
-                : "مساحة مؤقتة لعرض التقنيات التي تستخدمها.",
-          },
-          {
-            id: "projects",
-            title: localeParam === "en" ? "Projects" : "المشاريع",
-            text:
-              localeParam === "en"
-                ? "A placeholder for selected work."
-                : "مساحة مؤقتة لعرض المشاريع المختارة.",
-          },
-          {
-            id: "contact",
-            title: localeParam === "en" ? "Contact" : "تواصل",
-            text:
-              localeParam === "en"
-                ? "A placeholder for safe contact links."
-                : "مساحة مؤقتة لروابط التواصل الآمنة.",
-          },
-        ].map((item) => (
-          <section
-            key={item.id}
-            id={item.id}
-            className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"
-          >
-            <h2 className="text-lg font-semibold text-zinc-950">{item.title}</h2>
-            <p className="mt-3 text-sm leading-6 text-zinc-600">{item.text}</p>
-          </section>
-        ))}
-      </div>
-    </Container>
+      <Section
+        eyebrow={localeParam === "en" ? "Coming next" : "قريباً"}
+        title={
+          localeParam === "en"
+            ? "The remaining sections will be added in focused checkpoints."
+            : "سنضيف الأقسام المتبقية على مراحل مركزة."
+        }
+        description={
+          localeParam === "en"
+            ? "This keeps the portfolio easy to review, test, and improve without rushing into a full UI at once."
+            : "هذا يجعل مراجعة الملف الشخصي واختباره وتحسينه أسهل بدون بناء الواجهة كاملة مرة واحدة."
+        }
+        className="border-t border-zinc-200 bg-white"
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {upcomingSections.map((section) => (
+            <article
+              key={section.id}
+              id={section.id}
+              className="scroll-mt-24 rounded-3xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm"
+            >
+              <h2 className="text-lg font-semibold text-zinc-950">
+                {section.title[localeParam]}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-zinc-600">
+                {section.text[localeParam]}
+              </p>
+            </article>
+          ))}
+        </div>
+      </Section>
+    </>
   );
 }
