@@ -1,12 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { profile } from "@/config";
 import { getLocalizedText, isLocale } from "@/i18n/locales";
-
-const localeLabels = {
-  en: "العربية",
-  ar: "English",
-} as const;
+import { Container } from "@/components/ui/container";
 
 type HomePageProps = Readonly<{
   params: Promise<{
@@ -21,24 +16,12 @@ export default async function Home({ params }: HomePageProps) {
     notFound();
   }
 
-  const alternateLocale = localeParam === "en" ? "ar" : "en";
-
   return (
-    <main className="flex min-h-screen items-center justify-center px-6 py-20">
-      <section className="mx-auto w-full max-w-3xl">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-medium uppercase tracking-[0.24em] text-zinc-500">
-            Portfolio foundation
-          </p>
-
-          <Link
-            href={`/${alternateLocale}`}
-            hrefLang={alternateLocale}
-            className="rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-300 hover:text-zinc-950 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
-          >
-            {localeLabels[localeParam]}
-          </Link>
-        </div>
+    <Container className="py-16 sm:py-24">
+      <section className="max-w-3xl">
+        <p className="text-sm font-medium uppercase tracking-[0.24em] text-zinc-500">
+          {localeParam === "en" ? "Portfolio foundation" : "أساس الملف الشخصي"}
+        </p>
 
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
           {profile.displayName}
@@ -51,33 +34,85 @@ export default async function Home({ params }: HomePageProps) {
         <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">
           {getLocalizedText(profile.shortBio, localeParam)}
         </p>
+      </section>
 
-        <div className="mt-10 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <section
+          id="about"
+          className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8"
+        >
           <h2 className="text-lg font-semibold text-zinc-950">
-            {localeParam === "en"
-              ? "Checkpoint 3 adds language routing"
-              : "المرحلة الثالثة تضيف أساس اللغات"}
+            {localeParam === "en" ? "Layout shell is ready" : "هيكل الصفحة جاهز"}
           </h2>
 
           <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-600">
             <li>
               {localeParam === "en"
-                ? "English and Arabic now have separate routes."
-                : "أصبح للإنجليزية والعربية روابط منفصلة."}
+                ? "The page now has a reusable header, footer, and content container."
+                : "أصبحت الصفحة تحتوي على رأس وتذييل وحاوية محتوى قابلة لإعادة الاستخدام."}
             </li>
             <li>
               {localeParam === "en"
-                ? "The html lang and dir attributes now match the selected language."
-                : "خصائص lang و dir في صفحة HTML تتغير حسب اللغة المختارة."}
+                ? "Navigation links are localized and point to future page sections."
+                : "روابط التنقل مترجمة وتشير إلى أقسام الصفحة القادمة."}
             </li>
             <li>
               {localeParam === "en"
-                ? "Localized content is still typed and comes from config files."
-                : "المحتوى متعدد اللغات لا يزال منظماً ومحمياً بأنواع TypeScript."}
+                ? "The language switcher works without adding any new dependency."
+                : "مبدّل اللغة يعمل بدون إضافة أي مكتبة جديدة."}
             </li>
           </ul>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        <aside className="rounded-3xl border border-zinc-200 bg-zinc-950 p-6 text-white shadow-sm sm:p-8">
+          <h2 className="text-lg font-semibold">
+            {localeParam === "en" ? "Next checkpoint" : "المرحلة القادمة"}
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-zinc-300">
+            {localeParam === "en"
+              ? "Next, we will replace these placeholders with real hero, about, skills, projects, and contact sections."
+              : "بعد ذلك سنستبدل هذه العناصر المؤقتة بأقسام حقيقية للمقدمة، عني، المهارات، المشاريع، والتواصل."}
+          </p>
+        </aside>
+      </div>
+
+      <div className="mt-6 grid gap-6 md:grid-cols-3">
+        {[
+          {
+            id: "skills",
+            title: localeParam === "en" ? "Skills" : "المهارات",
+            text:
+              localeParam === "en"
+                ? "A placeholder for your technical stack."
+                : "مساحة مؤقتة لعرض التقنيات التي تستخدمها.",
+          },
+          {
+            id: "projects",
+            title: localeParam === "en" ? "Projects" : "المشاريع",
+            text:
+              localeParam === "en"
+                ? "A placeholder for selected work."
+                : "مساحة مؤقتة لعرض المشاريع المختارة.",
+          },
+          {
+            id: "contact",
+            title: localeParam === "en" ? "Contact" : "تواصل",
+            text:
+              localeParam === "en"
+                ? "A placeholder for safe contact links."
+                : "مساحة مؤقتة لروابط التواصل الآمنة.",
+          },
+        ].map((item) => (
+          <section
+            key={item.id}
+            id={item.id}
+            className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h2 className="text-lg font-semibold text-zinc-950">{item.title}</h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-600">{item.text}</p>
+          </section>
+        ))}
+      </div>
+    </Container>
   );
 }

@@ -40,3 +40,22 @@ a {
   outline: 3px solid #2563eb;
   outline-offset: 3px;
 }
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 50;
+  transform: translateY(-150%);
+  border-radius: 9999px;
+  background: #18181b;
+  color: #ffffff;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
