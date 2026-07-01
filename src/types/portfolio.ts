@@ -50,6 +50,7 @@ export type SocialLink = {
 
 export type SkillCategory = {
   title: LocalizedText;
+  description: LocalizedText;
   skills: readonly string[];
 };
 

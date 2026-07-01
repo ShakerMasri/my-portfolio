@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { AboutSection } from "@/components/sections/about-section";
 import { HeroSection } from "@/components/sections/hero-section";
+import { SkillsSection } from "@/components/sections/skills-section";
 import { Section } from "@/components/ui/section";
 import { isLocale } from "@/i18n/locales";
 
@@ -11,17 +12,6 @@ type HomePageProps = Readonly<{
 }>;
 
 const upcomingSections = [
-  {
-    id: "skills",
-    title: {
-      en: "Skills",
-      ar: "المهارات",
-    },
-    text: {
-      en: "Next we will organize your real technical stack into clear categories.",
-      ar: "بعد ذلك سننظم التقنيات التي تستخدمها فعلاً ضمن تصنيفات واضحة.",
-    },
-  },
   {
     id: "projects",
     title: {
@@ -57,6 +47,7 @@ export default async function Home({ params }: HomePageProps) {
     <>
       <HeroSection locale={localeParam} />
       <AboutSection locale={localeParam} />
+      <SkillsSection locale={localeParam} />
 
       <Section
         eyebrow={localeParam === "en" ? "Coming next" : "قريباً"}
@@ -72,7 +63,7 @@ export default async function Home({ params }: HomePageProps) {
         }
         className="border-t border-zinc-200 bg-white"
       >
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {upcomingSections.map((section) => (
             <article
               key={section.id}
