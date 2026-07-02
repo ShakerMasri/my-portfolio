@@ -10,6 +10,15 @@ export const profile = {
     en: "I build clean, reliable, and user-focused web experiences while growing my skills in software engineering and computer engineering.",
     ar: "أبني تجارب ويب نظيفة وموثوقة ومريحة للمستخدم، مع تطوير مهاراتي في هندسة البرمجيات وهندسة الحاسوب.",
   },
+  photo: {
+    src: "/images/profile.webp",
+    alt: {
+      en: "Portrait of Shaker Al-Masri, Computer Engineering student and full-stack web developer",
+      ar: "صورة شخصية لشاكر المصري، طالب هندسة حاسوب ومطور ويب Full-stack",
+    },
+    width: 960,
+    height: 1200,
+  },
   hero: {
     eyebrow: {
       en: "Computer Engineering × Full-stack Web Development",
@@ -89,15 +98,5 @@ export const profile = {
         },
       },
     ],
-
-    photo: {
-      src: "/images/profile.webp",
-      alt: {
-        en: "Portrait of Shaker Al-Masri, Computer Engineering student and full-stack web developer",
-        ar: "صورة شخصية لشاكر المصري، طالب هندسة حاسوب ومطور ويب Full-stack",
-      },
-      width: 960,
-      height: 1200,
-    },
   },
 } as const satisfies ProfileConfig;

@@ -31,6 +31,7 @@ export type ProfileConfig = {
   displayName: string;
   role: LocalizedText;
   shortBio: LocalizedText;
+  photo?: ProfilePhoto;
   hero: {
     eyebrow: LocalizedText;
     headline: LocalizedText;
@@ -43,7 +44,6 @@ export type ProfileConfig = {
     title: LocalizedText;
     paragraphs: readonly LocalizedText[];
     highlights: readonly ProfileHighlight[];
-    photo?: ProfilePhoto;
   };
 };
 
