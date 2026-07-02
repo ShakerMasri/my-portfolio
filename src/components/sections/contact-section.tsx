@@ -173,7 +173,7 @@ function ContactLink({
   const hint = copy.linkHints[link.kind];
   const accessibleHint = isExternal ? `${hint}, ${copy.newTabHint}` : hint;
   const cardClassName = [
-    "group flex items-center gap-4 rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950",
+    "group flex items-center gap-4 rounded-3xl border border-purple-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:bg-zinc-950 dark:hover:border-purple-400/40 dark:focus-visible:outline-purple-300",
     className,
   ]
     .filter(Boolean)
@@ -187,15 +187,15 @@ function ContactLink({
       rel={isExternal ? "noopener noreferrer" : undefined}
       target={isExternal ? "_blank" : undefined}
     >
-      <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-zinc-950 text-white transition group-hover:bg-zinc-800">
+      <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-purple-700 text-white transition group-hover:bg-purple-800 dark:bg-purple-400 dark:text-zinc-950 dark:group-hover:bg-purple-300">
         <SocialIcon kind={link.kind} />
       </span>
 
       <span>
-        <span className="block text-base font-semibold text-zinc-950">
+        <span className="block text-base font-semibold text-zinc-950 dark:text-zinc-50">
           {label}
         </span>
-        <span className="mt-1 block text-sm leading-6 text-zinc-600">
+        <span className="mt-1 block text-sm leading-6 text-zinc-600 dark:text-zinc-300">
           {hint}
         </span>
       </span>
@@ -213,19 +213,19 @@ export function ContactSection({ locale }: ContactSectionProps) {
       eyebrow={copy.eyebrow}
       title={copy.title}
       description={copy.description}
-      className="border-t border-zinc-200 bg-zinc-50"
+      className="border-t border-purple-100 bg-purple-50/40 dark:border-white/10 dark:bg-zinc-900/70"
     >
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <article className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-          <h3 className="text-lg font-semibold text-zinc-950">
+        <article className="rounded-3xl border border-purple-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:p-8">
+          <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {copy.contextTitle}
           </h3>
 
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-zinc-600">
+          <ul className="mt-5 space-y-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
             {copy.contextItems.map((item) => (
               <li key={item} className="flex gap-3">
                 <span
-                  className="mt-2 size-1.5 shrink-0 rounded-full bg-zinc-950"
+                  className="mt-2 size-1.5 shrink-0 rounded-full bg-purple-700 dark:bg-purple-300"
                   aria-hidden="true"
                 />
                 <span>{item}</span>
@@ -234,8 +234,8 @@ export function ContactSection({ locale }: ContactSectionProps) {
           </ul>
         </article>
 
-        <article className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-          <h3 className="text-lg font-semibold text-zinc-950">
+        <article className="rounded-3xl border border-purple-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:p-8">
+          <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {copy.linksTitle}
           </h3>
 
@@ -255,9 +255,9 @@ export function ContactSection({ locale }: ContactSectionProps) {
               ))}
             </div>
           ) : (
-            <div className="mt-5 rounded-3xl border border-dashed border-zinc-300 bg-zinc-50 p-5">
-              <p className="font-semibold text-zinc-950">{copy.emptyTitle}</p>
-              <p className="mt-2 text-sm leading-6 text-zinc-600">
+            <div className="mt-5 rounded-3xl border border-dashed border-purple-200 bg-purple-50/50 p-5 dark:border-purple-400/30 dark:bg-purple-400/5">
+              <p className="font-semibold text-zinc-950 dark:text-zinc-50">{copy.emptyTitle}</p>
+              <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
                 {copy.emptyText}
               </p>
             </div>

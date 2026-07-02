@@ -15,10 +15,10 @@ export function AboutSection({ locale }: AboutSectionProps) {
       id="about"
       eyebrow={getLocalizedText(about.eyebrow, locale)}
       title={getLocalizedText(about.title, locale)}
-      className="border-t border-zinc-200 bg-white"
+      className="border-t border-purple-100 bg-white dark:border-white/10 dark:bg-zinc-950"
     >
       <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr]">
-        <div className="space-y-5 text-base leading-8 text-zinc-600 sm:text-lg">
+        <div className="space-y-5 text-base leading-8 text-zinc-600 dark:text-zinc-300 sm:text-lg">
           {about.paragraphs.map((paragraph) => (
             <p key={getLocalizedText(paragraph, locale)}>
               {getLocalizedText(paragraph, locale)}
@@ -26,12 +26,12 @@ export function AboutSection({ locale }: AboutSectionProps) {
           ))}
         </div>
 
-        <div className="rounded-3xl border border-zinc-200 bg-zinc-50 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-zinc-950">
+        <div className="rounded-3xl border border-purple-100 bg-purple-50/50 p-6 dark:border-purple-400/20 dark:bg-purple-400/5 sm:p-8">
+          <h2 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {locale === "en" ? "How I approach work" : "كيف أتعامل مع العمل"}
           </h2>
 
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-zinc-600">
+          <ul className="mt-5 space-y-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
             <li>
               {locale === "en"
                 ? "Start with clear structure before adding visual complexity."

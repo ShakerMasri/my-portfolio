@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #fafafa;
+  color-scheme: light;
+  --background: #fbf7ff;
   --foreground: #18181b;
+  --focus-ring: #7c3aed;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --focus-ring: #c084fc;
 }
 
 @theme inline {
@@ -37,7 +48,7 @@ a:not([class]) {
 }
 
 :focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
@@ -48,8 +59,8 @@ a:not([class]) {
   z-index: 50;
   transform: translateY(-150%);
   border-radius: 9999px;
-  background: #18181b;
-  color: #ffffff;
+  background: var(--foreground);
+  color: var(--background);
   padding: 0.625rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -58,4 +69,14 @@ a:not([class]) {
 
 .skip-link:focus-visible {
   transform: translateY(0);
+}
+
+::selection {
+  background: #ddd6fe;
+  color: #2e1065;
+}
+
+.dark ::selection {
+  background: #6d28d9;
+  color: #fafafa;
 }

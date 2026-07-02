@@ -23,19 +23,19 @@ export function Section({
         {(eyebrow || title || description) && (
           <div className="max-w-3xl">
             {eyebrow && (
-              <p className="text-sm font-medium uppercase tracking-[0.24em] text-zinc-500">
+              <p className="text-sm font-medium uppercase tracking-[0.24em] text-purple-700 dark:text-purple-300">
                 {eyebrow}
               </p>
             )}
 
             {title && (
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
                 {title}
               </h2>
             )}
 
             {description && (
-              <p className="mt-5 text-base leading-8 text-zinc-600 sm:text-lg">
+              <p className="mt-5 text-base leading-8 text-zinc-600 dark:text-zinc-300 sm:text-lg">
                 {description}
               </p>
             )}
