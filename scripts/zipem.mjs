@@ -20,8 +20,10 @@ const outputPath = resolve(repoRoot, outputName);
 const stagingDir = resolve(repoRoot, ".tmp-portfolio-checkpoint-files");
 
 const filesToZip = [
+  "src/components/sections/hero-section.tsx",
   "src/components/sections/about-section.tsx",
   "src/config/profile.ts",
+  "src/i18n/locales.ts",
   "src/types/portfolio.ts",
 ];
 

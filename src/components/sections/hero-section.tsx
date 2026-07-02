@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import { Container } from "@/components/ui/container";
 import { profile } from "@/config/profile";
 import { getLocalizedText } from "@/i18n/locales";
@@ -59,11 +61,12 @@ function ActionLink({ link, locale, variant }: ActionLinkProps) {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const hero = profile.hero;
+  const photo = profile.photo;
 
   return (
     <section className="bg-[radial-gradient(circle_at_top_left,_#ede9fe,_transparent_32rem)] py-16 dark:bg-[radial-gradient(circle_at_top_left,_rgba(126,34,206,0.24),_transparent_34rem)] sm:py-24">
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)]">
           <div className="max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-purple-700 dark:text-purple-300">
               {getLocalizedText(hero.eyebrow, locale)}
@@ -91,31 +94,55 @@ export function HeroSection({ locale }: HeroSectionProps) {
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-purple-100 bg-white/85 p-6 shadow-sm backdrop-blur dark:border-purple-400/20 dark:bg-zinc-900/80 sm:p-8">
-            <p className="text-sm font-medium text-purple-700 dark:text-purple-300">
-              {locale === "en" ? "Profile snapshot" : "لمحة سريعة"}
-            </p>
+          <aside
+            className="relative isolate mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end"
+            aria-label={locale === "en" ? "Profile snapshot" : "لمحة سريعة"}
+          >
+            <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-purple-200/45 blur-3xl dark:bg-purple-500/20" />
 
-            <h2 className="mt-4 text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
-              {profile.displayName}
-            </h2>
+            <div className="overflow-hidden rounded-[2rem] border border-purple-100 bg-white/85 p-3 shadow-xl shadow-purple-950/10 backdrop-blur dark:border-purple-400/20 dark:bg-zinc-900/80 dark:shadow-black/30">
+              {photo ? (
+                <figure className="overflow-hidden rounded-[1.5rem] bg-purple-50 dark:bg-purple-400/10">
+                  <Image
+                    src={photo.src}
+                    alt={getLocalizedText(photo.alt, locale)}
+                    width={photo.width}
+                    height={photo.height}
+                    sizes="(min-width: 1024px) 26rem, (min-width: 640px) 28rem, 100vw"
+                    loading="eager"
+                    fetchPriority="high"
+                    className="aspect-[4/5] w-full object-cover"
+                  />
+                </figure>
+              ) : null}
 
-            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-              {getLocalizedText(profile.role, locale)}
-            </p>
+              <div className="p-5 sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300">
+                  {locale === "en" ? "Profile snapshot" : "لمحة سريعة"}
+                </p>
 
-            <dl className="mt-6 space-y-4 border-t border-zinc-200 pt-6 dark:border-white/10">
-              {profile.about.highlights.map((highlight) => (
-                <div key={getLocalizedText(highlight.label, locale)}>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
-                    {getLocalizedText(highlight.label, locale)}
-                  </dt>
-                  <dd className="mt-1 text-sm font-medium text-zinc-950 dark:text-zinc-100">
-                    {getLocalizedText(highlight.value, locale)}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+                <h2 className="mt-3 text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+                  {profile.displayName}
+                </h2>
+
+                <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                  {getLocalizedText(profile.role, locale)}
+                </p>
+
+                <dl className="mt-5 grid gap-3 border-t border-zinc-200 pt-5 dark:border-white/10 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                  {profile.about.highlights.map((highlight) => (
+                    <div key={getLocalizedText(highlight.label, locale)}>
+                      <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
+                        {getLocalizedText(highlight.label, locale)}
+                      </dt>
+                      <dd className="mt-1 text-sm font-medium leading-5 text-zinc-950 dark:text-zinc-100">
+                        {getLocalizedText(highlight.value, locale)}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
           </aside>
         </div>
       </Container>
