@@ -20,6 +20,13 @@ export type ProfileHighlight = {
   value: LocalizedText;
 };
 
+export type ProfilePhoto = {
+  src: `/${string}`;
+  alt: LocalizedText;
+  width: number;
+  height: number;
+};
+
 export type ProfileConfig = {
   displayName: string;
   role: LocalizedText;
@@ -36,6 +43,7 @@ export type ProfileConfig = {
     title: LocalizedText;
     paragraphs: readonly LocalizedText[];
     highlights: readonly ProfileHighlight[];
+    photo?: ProfilePhoto;
   };
 };
 
