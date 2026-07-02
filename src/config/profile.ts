@@ -89,5 +89,15 @@ export const profile = {
         },
       },
     ],
+
+    photo: {
+      src: "/images/profile.webp",
+      alt: {
+        en: "Portrait of Shaker Al-Masri, Computer Engineering student and full-stack web developer",
+        ar: "صورة شخصية لشاكر المصري، طالب هندسة حاسوب ومطور ويب Full-stack",
+      },
+      width: 960,
+      height: 1200,
+    },
   },
 } as const satisfies ProfileConfig;
