@@ -2,6 +2,10 @@ import type { SiteConfig } from "@/types/portfolio";
 
 export const siteConfig = {
   name: "Shaker Al-Masri",
+  title: {
+    en: "Shaker Al-Masri | Full-stack Web Developer",
+    ar: "شاكر المصري | مطوّر ويب Full-stack",
+  },
   description: {
     en: "Professional portfolio for Shaker Al-Masri, a Computer Engineering student and full-stack web developer.",
     ar: "ملف شخصي احترافي لشاكر المصري، طالب هندسة حاسوب ومطوّر ويب Full-stack.",

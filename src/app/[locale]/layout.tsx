@@ -37,12 +37,15 @@ export async function generateMetadata({
   const { locale: localeParam } = await params;
   const locale = isLocale(localeParam) ? localeParam : siteConfig.defaultLocale;
 
+  const title = siteConfig.title[locale];
+  const description = siteConfig.description[locale];
+
   return {
     title: {
-      default: siteConfig.name,
+      default: title,
       template: `%s | ${siteConfig.name}`,
     },
-    description: siteConfig.description[locale],
+    description,
     alternates: {
       languages: Object.fromEntries(
         siteConfig.supportedLocales.map((supportedLocale) => [
@@ -50,6 +53,21 @@ export async function generateMetadata({
           `/${supportedLocale}`,
         ]),
       ),
+    },
+    openGraph: {
+      title,
+      description,
+      siteName: siteConfig.name,
+      type: "website",
+      locale,
+      alternateLocale: siteConfig.supportedLocales.filter(
+        (supportedLocale) => supportedLocale !== locale,
+      ),
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
     },
   };
 }

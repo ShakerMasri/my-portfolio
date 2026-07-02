@@ -35,7 +35,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             <Link
               key={item.href}
               href={getLocalizedHref(item, locale)}
-              className="transition hover:text-zinc-950"
+              className="rounded-full transition hover:text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950"
             >
               {getLocalizedText(item.label, locale)}
             </Link>

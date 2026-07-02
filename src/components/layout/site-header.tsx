@@ -45,7 +45,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={getLocalizedHref(item, locale)}
-              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950"
+              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
             >
               {getLocalizedText(item.label, locale)}
             </Link>
