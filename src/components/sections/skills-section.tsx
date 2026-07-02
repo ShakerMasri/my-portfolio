@@ -37,19 +37,19 @@ export function SkillsSection({ locale }: SkillsSectionProps) {
       eyebrow={copy.eyebrow}
       title={copy.title}
       description={copy.description}
-      className="border-t border-zinc-200 bg-zinc-50"
+      className="border-t border-purple-100 bg-purple-50/40 dark:border-white/10 dark:bg-zinc-900/70"
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {skillCategories.map((category) => (
           <article
             key={category.title.en}
-            className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-7"
+            className="rounded-3xl border border-purple-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:p-7"
           >
-            <h3 className="text-lg font-semibold text-zinc-950">
+            <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
               {getLocalizedText(category.title, locale)}
             </h3>
 
-            <p className="mt-3 text-sm leading-6 text-zinc-600">
+            <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
               {getLocalizedText(category.description, locale)}
             </p>
 
@@ -57,7 +57,7 @@ export function SkillsSection({ locale }: SkillsSectionProps) {
               {category.skills.map((skill) => (
                 <li
                   key={skill}
-                  className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-sm font-medium text-zinc-700"
+                  className="rounded-full border border-purple-100 bg-purple-50/70 px-3 py-1.5 text-sm font-medium text-purple-900 dark:border-purple-400/20 dark:bg-purple-400/10 dark:text-purple-100"
                 >
                   {skill}
                 </li>
@@ -67,8 +67,8 @@ export function SkillsSection({ locale }: SkillsSectionProps) {
         ))}
       </div>
 
-      <div className="mt-6 rounded-3xl border border-dashed border-zinc-300 bg-white p-6 text-sm leading-6 text-zinc-600">
-        <p className="font-semibold text-zinc-950">{copy.noteTitle}</p>
+      <div className="mt-6 rounded-3xl border border-dashed border-purple-200 bg-white p-6 text-sm leading-6 text-zinc-600 dark:border-purple-400/30 dark:bg-zinc-950 dark:text-zinc-300">
+        <p className="font-semibold text-zinc-950 dark:text-zinc-50">{copy.noteTitle}</p>
         <p className="mt-2">{copy.noteText}</p>
       </div>
     </Section>

@@ -3,6 +3,7 @@ import { navigation, profile } from "@/config";
 import { getLocalizedText } from "@/i18n/locales";
 import type { Locale, NavigationItem } from "@/types/portfolio";
 import { Container } from "@/components/ui/container";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 
 function getLocalizedHref(item: NavigationItem, locale: Locale) {
@@ -19,12 +20,12 @@ type SiteHeaderProps = Readonly<{
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   return (
-    <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-background/90 backdrop-blur dark:border-white/10">
       <Container className="flex flex-col gap-3 py-3 md:min-h-16 md:flex-row md:items-center md:justify-between md:py-0">
         <div className="flex items-center justify-between gap-4">
           <Link
             href={`/${locale}`}
-            className="font-semibold tracking-tight text-zinc-950"
+            className="font-semibold tracking-tight text-zinc-950 transition hover:text-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:text-zinc-50 dark:hover:text-purple-300 dark:focus-visible:outline-purple-300"
             aria-label={
               locale === "en" ? "Go to homepage" : "الانتقال إلى الصفحة الرئيسية"
             }
@@ -32,7 +33,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             {profile.displayName}
           </Link>
 
-          <div className="md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle locale={locale} />
             <LanguageSwitcher locale={locale} />
           </div>
         </div>
@@ -45,14 +47,15 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={getLocalizedHref(item, locale)}
-              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-950"
+              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-purple-50 hover:text-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 dark:text-zinc-300 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
             >
               {getLocalizedText(item.label, locale)}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle locale={locale} />
           <LanguageSwitcher locale={locale} />
         </div>
       </Container>

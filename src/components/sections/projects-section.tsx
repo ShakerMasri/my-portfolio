@@ -61,38 +61,38 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
   const title = getLocalizedText(project.title, locale);
   const summary = getLocalizedText(project.summary, locale);
   return (
-    <article className="flex h-full flex-col rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-7">
+    <article className="flex h-full flex-col rounded-3xl border border-purple-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-purple-200 hover:shadow-md dark:border-white/10 dark:bg-zinc-950 dark:hover:border-purple-400/30 sm:p-7">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-600">
+        <span className="rounded-full border border-purple-100 bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-800 dark:border-purple-400/20 dark:bg-purple-400/10 dark:text-purple-200">
           {statusLabels[locale][project.status]}
         </span>
 
         {project.featured && (
-          <span className="rounded-full bg-zinc-950 px-3 py-1 text-xs font-semibold text-white">
+          <span className="rounded-full bg-purple-700 px-3 py-1 text-xs font-semibold text-white dark:bg-purple-400 dark:text-zinc-950">
             {copy.featured}
           </span>
         )}
       </div>
 
-      <h3 className="mt-5 text-xl font-semibold tracking-tight text-zinc-950">
+      <h3 className="mt-5 text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
         {title}
       </h3>
 
-      <p className="mt-3 flex-1 text-sm leading-6 text-zinc-600">{summary}</p>
+      <p className="mt-3 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{summary}</p>
 
       <ul className="mt-5 flex flex-wrap gap-2" aria-label={title}>
         {project.tags.map((tag) => (
           <li
             key={tag}
-            className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium text-zinc-700"
+            className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-300"
           >
             {tag}
           </li>
         ))}
       </ul>
 
-      <div className="mt-6 border-t border-zinc-200 pt-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+      <div className="mt-6 border-t border-zinc-200 pt-5 dark:border-white/10">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
           {copy.linksLabel}
         </p>
 
@@ -100,7 +100,7 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
           <div className="mt-3 flex flex-wrap gap-3 text-sm font-semibold">
             {project.links.live && (
               <a
-                className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-zinc-400 hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950"
+                className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
                 href={project.links.live}
                 rel="noreferrer"
                 target="_blank"
@@ -110,7 +110,7 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             )}
             {project.links.source && (
               <a
-                className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-zinc-400 hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-950"
+                className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
                 href={project.links.source}
                 rel="noreferrer"
                 target="_blank"
@@ -120,7 +120,7 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             )}
           </div>
         ) : (
-          <p className="mt-3 text-sm leading-6 text-zinc-500">{copy.noLinks}</p>
+          <p className="mt-3 text-sm leading-6 text-zinc-500 dark:text-zinc-400">{copy.noLinks}</p>
         )}
       </div>
     </article>
@@ -136,7 +136,7 @@ export function ProjectsSection({ locale }: ProjectsSectionProps) {
       eyebrow={copy.eyebrow}
       title={copy.title}
       description={copy.description}
-      className="border-t border-zinc-200 bg-white"
+      className="border-t border-purple-100 bg-white dark:border-white/10 dark:bg-zinc-950"
     >
       {projects.length > 0 ? (
         <div className="grid gap-6 lg:grid-cols-2">
@@ -145,11 +145,11 @@ export function ProjectsSection({ locale }: ProjectsSectionProps) {
           ))}
         </div>
       ) : (
-        <div className="rounded-3xl border border-dashed border-zinc-300 bg-zinc-50 p-6 sm:p-8">
-          <h3 className="text-lg font-semibold text-zinc-950">
+        <div className="rounded-3xl border border-dashed border-purple-200 bg-purple-50/50 p-6 dark:border-purple-400/30 dark:bg-purple-400/5 sm:p-8">
+          <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {copy.emptyTitle}
           </h3>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-600">
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-300">
             {copy.emptyText}
           </p>
         </div>
