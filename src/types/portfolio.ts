@@ -4,6 +4,7 @@ export type LocalizedText = Record<Locale, string>;
 
 export type SiteConfig = {
   name: string;
+  title: LocalizedText;
   description: LocalizedText;
   defaultLocale: Locale;
   supportedLocales: readonly Locale[];
@@ -43,8 +44,19 @@ export type NavigationItem = {
   label: LocalizedText;
 };
 
+export type SocialLinkKind =
+  | "email"
+  | "github"
+  | "linkedin"
+  | "facebook"
+  | "instagram"
+  | "whatsapp"
+  | "phone"
+  | "website";
+
 export type SocialLink = {
-  label: string;
+  kind: SocialLinkKind;
+  label: LocalizedText;
   href: `https://${string}` | `mailto:${string}` | `tel:${string}`;
 };
 
