@@ -18,7 +18,7 @@ export function Section({
   ...props
 }: SectionProps) {
   return (
-    <section className={`py-16 sm:py-24 ${className}`} {...props}>
+    <section className={`relative overflow-hidden py-16 sm:py-24 ${className}`} {...props}>
       <Container className={contentClassName}>
         {(eyebrow || title || description) && (
           <div className="max-w-3xl">
@@ -39,10 +39,15 @@ export function Section({
                 {description}
               </p>
             )}
+
+            <div
+              className="mt-6 h-px w-24 bg-gradient-to-r from-purple-500/70 to-transparent dark:from-purple-300/50"
+              aria-hidden="true"
+            />
           </div>
         )}
 
-        {children && <div className="mt-10">{children}</div>}
+        {children && <div className="mt-10 sm:mt-12">{children}</div>}
       </Container>
     </section>
   );

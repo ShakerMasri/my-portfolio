@@ -20,7 +20,7 @@ type SiteHeaderProps = Readonly<{
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   return (
-    <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-background/90 backdrop-blur dark:border-white/10">
+    <header className="sticky top-0 z-30 border-b border-purple-100/80 bg-white/80 shadow-sm shadow-purple-950/5 backdrop-blur dark:border-white/10 dark:bg-background/90 dark:shadow-black/20">
       <Container className="flex flex-col gap-3 py-3 md:min-h-16 md:flex-row md:items-center md:justify-between md:py-0">
         <div className="flex items-center justify-between gap-4">
           <Link

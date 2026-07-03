@@ -18,7 +18,7 @@ type SiteFooterProps = Readonly<{
 
 export function SiteFooter({ locale }: SiteFooterProps) {
   return (
-    <footer className="border-t border-zinc-200 bg-white dark:border-white/10 dark:bg-zinc-950">
+    <footer className="border-t border-purple-100/80 bg-white/80 shadow-[inset_0_1px_0_rgba(124,58,237,0.04)] dark:border-white/10 dark:bg-zinc-950 dark:shadow-none">
       <Container className="flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-semibold text-zinc-950 dark:text-zinc-50">{profile.displayName}</p>

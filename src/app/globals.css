@@ -7,6 +7,7 @@
   --background: #fbf7ff;
   --foreground: #18181b;
   --focus-ring: #7c3aed;
+  --surface-glow: rgba(124, 58, 237, 0.14);
 }
 
 .dark {
@@ -33,9 +34,17 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, var(--surface-glow), transparent 28rem),
+    linear-gradient(180deg, var(--background) 0%, #ffffff 42rem, #fbf7ff 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(126, 34, 206, 0.18), transparent 30rem),
+    var(--background);
 }
 
 :where([dir="rtl"]) body {
@@ -79,4 +88,10 @@ a:not([class]) {
 .dark ::selection {
   background: #6d28d9;
   color: #fafafa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

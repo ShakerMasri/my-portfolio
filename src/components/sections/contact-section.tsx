@@ -173,7 +173,7 @@ function ContactLink({
   const hint = copy.linkHints[link.kind];
   const accessibleHint = isExternal ? `${hint}, ${copy.newTabHint}` : hint;
   const cardClassName = [
-    "group flex items-center gap-4 rounded-3xl border border-purple-100 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:bg-zinc-950 dark:hover:border-purple-400/40 dark:focus-visible:outline-purple-300",
+    "group flex items-center gap-4 rounded-3xl border border-purple-100/80 bg-white/90 p-5 shadow-sm shadow-purple-950/5 transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:bg-white hover:shadow-md hover:shadow-purple-950/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 dark:hover:border-purple-400/40 dark:focus-visible:outline-purple-300 motion-reduce:transition-none",
     className,
   ]
     .filter(Boolean)
@@ -213,10 +213,10 @@ export function ContactSection({ locale }: ContactSectionProps) {
       eyebrow={copy.eyebrow}
       title={copy.title}
       description={copy.description}
-      className="border-t border-purple-100 bg-purple-50/40 dark:border-white/10 dark:bg-zinc-900/70"
+      className="border-t border-purple-100/80 bg-[linear-gradient(180deg,_rgba(250,245,255,0.82),_rgba(255,255,255,0.72))] dark:border-white/10 dark:bg-zinc-900/70 dark:bg-none"
     >
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <article className="rounded-3xl border border-purple-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:p-8">
+        <article className="rounded-3xl border border-purple-100/80 bg-white/90 p-6 shadow-lg shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 sm:p-8">
           <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {copy.contextTitle}
           </h3>
@@ -234,7 +234,7 @@ export function ContactSection({ locale }: ContactSectionProps) {
           </ul>
         </article>
 
-        <article className="rounded-3xl border border-purple-100 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-950 sm:p-8">
+        <article className="rounded-3xl border border-purple-100/80 bg-white/90 p-6 shadow-lg shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 sm:p-8">
           <h3 className="text-lg font-semibold text-zinc-950 dark:text-zinc-50">
             {copy.linksTitle}
           </h3>
@@ -255,7 +255,7 @@ export function ContactSection({ locale }: ContactSectionProps) {
               ))}
             </div>
           ) : (
-            <div className="mt-5 rounded-3xl border border-dashed border-purple-200 bg-purple-50/50 p-5 dark:border-purple-400/30 dark:bg-purple-400/5">
+            <div className="mt-5 rounded-3xl border border-dashed border-purple-200 bg-purple-50/60 p-5 dark:border-purple-400/30 dark:bg-purple-400/5">
               <p className="font-semibold text-zinc-950 dark:text-zinc-50">{copy.emptyTitle}</p>
               <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
                 {copy.emptyText}
