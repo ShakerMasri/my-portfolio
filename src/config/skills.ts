@@ -7,8 +7,8 @@ export const skillCategories = [
       ar: "الواجهة وتجربة المستخدم",
     },
     description: {
-      en: "Core tools used to build a clean, responsive, and maintainable user interface.",
-      ar: "أدوات أساسية لبناء واجهة نظيفة، متجاوبة، وسهلة الصيانة.",
+      en: "Core tools used to build clean, responsive, and maintainable interfaces.",
+      ar: "أدوات أساسية لبناء واجهات نظيفة، متجاوبة، وسهلة الصيانة.",
     },
     skills: [
       "React",
@@ -21,12 +21,30 @@ export const skillCategories = [
   },
   {
     title: {
+      en: "Backend and data",
+      ar: "الباك إند والبيانات",
+    },
+    description: {
+      en: "Server-side foundations demonstrated through full-stack project work.",
+      ar: "أساسيات السيرفر والبيانات التي أطبقها من خلال مشاريع Full-stack حقيقية.",
+    },
+    skills: [
+      "Server-side validation",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Authentication flows",
+      "Transactional logic",
+      "Environment configuration",
+    ],
+  },
+  {
+    title: {
       en: "Localization and accessibility",
       ar: "التعريب والإتاحة",
     },
     description: {
-      en: "Practices that make the portfolio easier to use across languages, devices, and input methods.",
-      ar: "ممارسات تجعل الملف أسهل استخداماً عبر اللغات، الأجهزة، وطرق الإدخال المختلفة.",
+      en: "Practices that make interfaces easier to use across languages, devices, and input methods.",
+      ar: "ممارسات تجعل الواجهات أسهل استخداماً عبر اللغات، الأجهزة، وطرق الإدخال المختلفة.",
     },
     skills: [
       "English / Arabic routes",
@@ -38,20 +56,21 @@ export const skillCategories = [
   },
   {
     title: {
-      en: "Development workflow",
-      ar: "أسلوب التطوير",
+      en: "Workflow and quality",
+      ar: "أسلوب العمل والجودة",
     },
     description: {
-      en: "Project habits that keep changes reviewable, typed, and safe to improve step by step.",
-      ar: "عادات عمل تجعل التغييرات قابلة للمراجعة، مكتوبة بأنواع واضحة، وآمنة للتحسين خطوة بخطوة.",
+      en: "Habits and tools that keep changes reviewable, tested, and safe to improve step by step.",
+      ar: "عادات وأدوات تجعل التغييرات قابلة للمراجعة، الاختبار، والتحسين خطوة بخطوة.",
     },
     skills: [
       "Git & GitHub",
       "Typed configuration",
-      "Reusable components",
+      "Step-by-step delivery",
       "ESLint",
       "TypeScript type checking",
-      "Production build checks",
+      "Vitest / Playwright",
+      "AI-assisted development workflow",
     ],
   },
 ] as const satisfies readonly SkillCategory[];

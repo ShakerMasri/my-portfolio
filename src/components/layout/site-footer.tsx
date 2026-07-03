@@ -18,7 +18,7 @@ type SiteFooterProps = Readonly<{
 
 export function SiteFooter({ locale }: SiteFooterProps) {
   return (
-    <footer className="border-t border-purple-100/80 bg-white/80 shadow-[inset_0_1px_0_rgba(124,58,237,0.04)] dark:border-white/10 dark:bg-zinc-950 dark:shadow-none">
+    <footer className="border-t border-purple-200/70 bg-[#fffafe]/90 shadow-[inset_0_1px_0_rgba(124,58,237,0.08)] dark:border-white/10 dark:bg-zinc-950 dark:shadow-none">
       <Container className="flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-semibold text-zinc-950 dark:text-zinc-50">{profile.displayName}</p>
@@ -35,7 +35,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
             <Link
               key={item.href}
               href={getLocalizedHref(item, locale)}
-              className="rounded-full transition hover:text-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:hover:text-purple-300 dark:focus-visible:outline-purple-300"
+              className="rounded-full transition hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:hover:text-purple-300 dark:focus-visible:outline-purple-300"
             >
               {getLocalizedText(item.label, locale)}
             </Link>
