@@ -76,13 +76,34 @@ export type SkillCategory = {
 
 export type ProjectStatus = "planned" | "in-progress" | "completed";
 
+export type ProjectCaseStudyMetaItem = {
+  label: LocalizedText;
+  value: LocalizedText;
+};
+
+export type ProjectCaseStudySection = {
+  title: LocalizedText;
+  body: readonly LocalizedText[];
+  bullets?: readonly LocalizedText[];
+};
+
+export type ProjectCaseStudy = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  summary: LocalizedText;
+  meta: readonly ProjectCaseStudyMetaItem[];
+  sections: readonly ProjectCaseStudySection[];
+};
+
 export type ProjectConfig = {
   slug: string;
   title: LocalizedText;
   summary: LocalizedText;
+  highlights: readonly LocalizedText[];
   tags: readonly string[];
   status: ProjectStatus;
   featured?: boolean;
+  caseStudy?: ProjectCaseStudy;
   links?: {
     live?: `https://${string}`;
     source?: `https://${string}`;

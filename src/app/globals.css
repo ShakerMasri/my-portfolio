@@ -4,10 +4,12 @@
 
 :root {
   color-scheme: light;
-  --background: #fbf7ff;
+  --background: #f8f2ff;
   --foreground: #18181b;
   --focus-ring: #7c3aed;
-  --surface-glow: rgba(124, 58, 237, 0.14);
+  --surface-glow: rgba(124, 58, 237, 0.16);
+  --surface-warm: #fffbff;
+  --surface-muted: #f5effc;
 }
 
 .dark {
@@ -35,8 +37,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at top left, var(--surface-glow), transparent 28rem),
-    linear-gradient(180deg, var(--background) 0%, #ffffff 42rem, #fbf7ff 100%);
+    radial-gradient(circle at top left, var(--surface-glow), transparent 30rem),
+    radial-gradient(circle at 85% 12rem, rgba(216, 180, 254, 0.18), transparent 26rem),
+    linear-gradient(180deg, var(--background) 0%, var(--surface-warm) 38rem, var(--surface-muted) 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
@@ -90,8 +93,34 @@ a:not([class]) {
   color: #fafafa;
 }
 
+[data-reveal="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal="true"][data-reveal-state="hidden"] {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+[data-reveal="true"][data-reveal-state="visible"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  [data-reveal="true"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
   }
 }

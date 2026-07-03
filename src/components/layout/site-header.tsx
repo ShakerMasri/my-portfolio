@@ -20,7 +20,7 @@ type SiteHeaderProps = Readonly<{
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   return (
-    <header className="sticky top-0 z-30 border-b border-purple-100/80 bg-white/80 shadow-sm shadow-purple-950/5 backdrop-blur dark:border-white/10 dark:bg-background/90 dark:shadow-black/20">
+    <header className="sticky top-0 z-30 border-b border-purple-200/70 bg-[#fffafe]/90 shadow-sm shadow-purple-950/10 backdrop-blur dark:border-white/10 dark:bg-background/90 dark:shadow-black/20">
       <Container className="flex flex-col gap-3 py-3 md:min-h-16 md:flex-row md:items-center md:justify-between md:py-0">
         <div className="flex items-center justify-between gap-4">
           <Link
@@ -47,7 +47,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             <Link
               key={item.href}
               href={getLocalizedHref(item, locale)}
-              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-purple-50 hover:text-purple-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 dark:text-zinc-300 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
+              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-purple-100/70 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 dark:text-zinc-300 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
             >
               {getLocalizedText(item.label, locale)}
             </Link>
