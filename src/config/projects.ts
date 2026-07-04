@@ -50,6 +50,34 @@ export const projects = [
     ],
     status: "completed",
     featured: true,
+    repository: {
+      status: "private",
+      label: {
+        en: "Private repository",
+        ar: "مستودع خاص",
+      },
+      note: {
+        en: "Source code is kept private because this is a reusable client-ready template. Implementation details can be discussed or shared selectively when appropriate.",
+        ar: "الكود المصدري محفوظ كمستودع خاص لأن المشروع قالب قابل لإعادة الاستخدام للعملاء. يمكن مناقشة تفاصيل التنفيذ أو مشاركة الوصول بشكل انتقائي عند الحاجة.",
+      },
+    },
+    links: {
+      live: {
+        href: "https://ecommerce-template-clothing.onrender.com",
+        label: {
+          en: "Live demo",
+          ar: "الديمو المباشر",
+        },
+        note: {
+          en: "Hosted on Render free tier; the first load may take a moment after inactivity.",
+          ar: "مستضاف على خطة Render المجانية؛ قد يحتاج التحميل الأول لبعض الوقت بعد فترة عدم استخدام.",
+        },
+        dataNotice: {
+          en: "Demo data only; no real customer data is shown.",
+          ar: "بيانات تجريبية فقط؛ لا يتم عرض بيانات عملاء حقيقية.",
+        },
+      },
+    },
     caseStudy: {
       eyebrow: {
         en: "Featured case study",

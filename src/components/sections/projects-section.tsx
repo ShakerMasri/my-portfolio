@@ -27,7 +27,7 @@ const projectsSectionCopy = {
     highlightsLabel: "Project highlights",
     actionsLabel: "Project actions",
     caseStudyLabel: "View case study",
-    liveLabel: "Live site",
+    liveLabel: "Live demo",
     sourceLabel: "Source code",
   },
   ar: {
@@ -42,7 +42,7 @@ const projectsSectionCopy = {
     highlightsLabel: "أبرز نقاط المشروع",
     actionsLabel: "إجراءات المشروع",
     caseStudyLabel: "عرض دراسة المشروع",
-    liveLabel: "الموقع المباشر",
+    liveLabel: "الديمو المباشر",
     sourceLabel: "الكود المصدري",
   },
 } as const;
@@ -64,6 +64,17 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
   const copy = projectsSectionCopy[locale];
   const title = getLocalizedText(project.title, locale);
   const summary = getLocalizedText(project.summary, locale);
+  const liveLink = project.links?.live;
+  const liveLabel = liveLink?.label ? getLocalizedText(liveLink.label, locale) : copy.liveLabel;
+  const liveNote = liveLink?.note ? getLocalizedText(liveLink.note, locale) : undefined;
+  const demoDataNotice = liveLink?.dataNotice
+    ? getLocalizedText(liveLink.dataNotice, locale)
+    : undefined;
+  const demoInfoId = `${project.slug}-demo-info`;
+  const hasDemoInfo = Boolean(liveNote || demoDataNotice);
+  const repositoryNote = project.repository?.note
+    ? getLocalizedText(project.repository.note, locale)
+    : undefined;
 
   return (
     <article className="flex h-full flex-col rounded-3xl border border-purple-200/70 bg-white p-6 shadow-xl shadow-purple-950/10 ring-1 ring-white/80 transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-purple-950/20 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 dark:ring-transparent dark:hover:border-purple-400/30 motion-reduce:transition-none sm:p-7">
@@ -125,14 +136,15 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             </Link>
           )}
 
-          {project.links?.live && (
+          {liveLink && (
             <a
               className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
-              href={project.links.live}
+              href={liveLink.href}
               rel="noreferrer"
               target="_blank"
+              aria-describedby={hasDemoInfo ? demoInfoId : undefined}
             >
-              {copy.liveLabel}
+              {liveLabel}
             </a>
           )}
 
@@ -147,6 +159,22 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             </a>
           )}
         </div>
+
+        {hasDemoInfo && (
+          <div id={demoInfoId} className="mt-4 space-y-1 text-xs leading-5 text-zinc-500 dark:text-zinc-400">
+            {liveNote && <p>{liveNote}</p>}
+            {demoDataNotice && <p>{demoDataNotice}</p>}
+          </div>
+        )}
+
+        {project.repository && (
+          <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-xs leading-5 text-zinc-600 dark:border-white/10 dark:bg-zinc-900/70 dark:text-zinc-300">
+            <p className="font-semibold text-zinc-800 dark:text-zinc-100">
+              {getLocalizedText(project.repository.label, locale)}
+            </p>
+            {repositoryNote && <p className="mt-1">{repositoryNote}</p>}
+          </div>
+        )}
       </div>
     </article>
   );
