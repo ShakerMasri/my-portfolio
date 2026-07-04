@@ -18,6 +18,9 @@ const pageCopy = {
   en: {
     backToProjects: "Back to projects",
     metaLabel: "Project details",
+    projectLinksLabel: "Project links",
+    liveLabel: "Live demo",
+    sourceLabel: "Source code",
     techLabel: "Tech stack",
     highlightsLabel: "Homepage highlights",
     supplementaryLabel: "Supporting project details",
@@ -27,6 +30,9 @@ const pageCopy = {
   ar: {
     backToProjects: "العودة إلى المشاريع",
     metaLabel: "تفاصيل المشروع",
+    projectLinksLabel: "روابط المشروع",
+    liveLabel: "الديمو المباشر",
+    sourceLabel: "الكود المصدري",
     techLabel: "التقنيات المستخدمة",
     highlightsLabel: "أبرز نقاط العرض المختصر",
     supplementaryLabel: "تفاصيل إضافية عن المشروع",
@@ -111,6 +117,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const copy = pageCopy[localeParam];
   const caseStudy = project.caseStudy;
   const projectTitle = getLocalizedText(project.title, localeParam);
+  const liveLink = project.links?.live;
+  const liveLabel = liveLink?.label ? getLocalizedText(liveLink.label, localeParam) : copy.liveLabel;
+  const liveNote = liveLink?.note ? getLocalizedText(liveLink.note, localeParam) : undefined;
+  const demoDataNotice = liveLink?.dataNotice
+    ? getLocalizedText(liveLink.dataNotice, localeParam)
+    : undefined;
+  const repositoryNote = project.repository?.note
+    ? getLocalizedText(project.repository.note, localeParam)
+    : undefined;
+  const hasProjectLinks = Boolean(liveLink || project.links?.source || project.repository);
 
   return (
     <>
@@ -206,6 +222,56 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="order-last space-y-6 lg:sticky lg:top-24"
               aria-label={copy.supplementaryLabel}
             >
+              {hasProjectLinks && (
+                <Reveal delayMs={100}>
+                  <div className="rounded-3xl border border-purple-100/80 bg-white/90 p-6 shadow-lg shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
+                      {copy.projectLinksLabel}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+                      {liveLink && (
+                        <a
+                          className="rounded-full border border-purple-700 bg-purple-700 px-4 py-2 text-white shadow-sm shadow-purple-950/10 transition hover:-translate-y-0.5 hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-purple-400 dark:bg-purple-400 dark:text-zinc-950 dark:hover:bg-purple-300 dark:focus-visible:outline-purple-300 motion-reduce:transition-none"
+                          href={liveLink.href}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          {liveLabel}
+                        </a>
+                      )}
+
+                      {project.links?.source && (
+                        <a
+                          className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
+                          href={project.links.source}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          {copy.sourceLabel}
+                        </a>
+                      )}
+                    </div>
+
+                    {(liveNote || demoDataNotice) && (
+                      <div className="mt-4 space-y-2 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+                        {liveNote && <p>{liveNote}</p>}
+                        {demoDataNotice && <p>{demoDataNotice}</p>}
+                      </div>
+                    )}
+
+                    {project.repository && (
+                      <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm leading-6 text-zinc-600 dark:border-white/10 dark:bg-zinc-900/70 dark:text-zinc-300">
+                        <p className="font-semibold text-zinc-800 dark:text-zinc-100">
+                          {getLocalizedText(project.repository.label, localeParam)}
+                        </p>
+                        {repositoryNote && <p className="mt-1">{repositoryNote}</p>}
+                      </div>
+                    )}
+                  </div>
+                </Reveal>
+              )}
+
               <Reveal delayMs={120}>
                 <div className="rounded-3xl border border-purple-100/80 bg-white/90 p-6 shadow-lg shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">

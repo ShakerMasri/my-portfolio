@@ -76,6 +76,21 @@ export type SkillCategory = {
 
 export type ProjectStatus = "planned" | "in-progress" | "completed";
 
+export type ProjectRepositoryStatus = "public" | "private" | "available-on-request";
+
+export type ProjectLiveDemoLink = {
+  href: `https://${string}`;
+  label?: LocalizedText;
+  note?: LocalizedText;
+  dataNotice?: LocalizedText;
+};
+
+export type ProjectRepository = {
+  status: ProjectRepositoryStatus;
+  label: LocalizedText;
+  note?: LocalizedText;
+};
+
 export type ProjectCaseStudyMetaItem = {
   label: LocalizedText;
   value: LocalizedText;
@@ -104,8 +119,9 @@ export type ProjectConfig = {
   status: ProjectStatus;
   featured?: boolean;
   caseStudy?: ProjectCaseStudy;
+  repository?: ProjectRepository;
   links?: {
-    live?: `https://${string}`;
+    live?: ProjectLiveDemoLink;
     source?: `https://${string}`;
   };
 };
