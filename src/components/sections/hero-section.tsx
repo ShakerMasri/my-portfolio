@@ -45,7 +45,15 @@ function ActionLink({ link, locale, variant }: ActionLinkProps) {
   const href = getInternalHref(link.href, locale);
   const className = `inline-flex min-h-11 items-center justify-center rounded-full border px-5 text-sm font-semibold transition duration-200 motion-reduce:transition-none ${actionStyles[variant]}`;
 
-  if (href.startsWith("https://") || href.startsWith("mailto:")) {
+  if (href.startsWith("https://")) {
+    return (
+      <a className={className} href={href} rel="noopener noreferrer" target="_blank">
+        {label}
+      </a>
+    );
+  }
+
+  if (href.startsWith("mailto:")) {
     return (
       <a className={className} href={href}>
         {label}

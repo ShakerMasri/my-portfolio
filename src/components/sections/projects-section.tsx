@@ -140,7 +140,7 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             <a
               className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
               href={liveLink.href}
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
               aria-describedby={hasDemoInfo ? demoInfoId : undefined}
             >
@@ -152,7 +152,7 @@ function ProjectCard({ project, locale }: ProjectCardProps) {
             <a
               className="rounded-full border border-zinc-300 px-4 py-2 text-zinc-950 transition hover:border-purple-300 hover:bg-purple-50 hover:text-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:border-white/10 dark:text-zinc-100 dark:hover:border-purple-400/50 dark:hover:bg-purple-400/10 dark:hover:text-purple-200 dark:focus-visible:outline-purple-300"
               href={project.links.source}
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               {copy.sourceLabel}

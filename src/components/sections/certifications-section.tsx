@@ -25,9 +25,6 @@ const certificationsSectionCopy = {
     description:
       "A focused list of completed courses and workshop certificates. The section is kept concise so certificates support the portfolio without replacing real project evidence.",
     topicsLabel: "Covered topics",
-    noteTitle: "How I present certificates",
-    noteText:
-      "Courses and workshops are listed as learning milestones, not as a replacement for hands-on project work. Similar workshop certificates from the same event are grouped to avoid repetition.",
     emptyTitle: "Certifications will be added after the details are ready.",
     emptyText:
       "This section is wired to typed certification data without inventing credentials.",
@@ -38,9 +35,6 @@ const certificationsSectionCopy = {
     description:
       "قائمة مركّزة للدورات المكتملة وشهادات ورش العمل. أبقي هذا القسم مختصراً حتى يدعم المشاريع بدون أن يحل مكان إثبات العمل العملي.",
     topicsLabel: "المواضيع المغطاة",
-    noteTitle: "طريقة عرض الشهادات",
-    noteText:
-      "أعرض الدورات والورش كمحطات تعلم، وليس كبديل عن المشاريع العملية. الشهادات المتشابهة من نفس الفعالية تم جمعها لتجنب التكرار.",
     emptyTitle: "ستتم إضافة الشهادات بعد تجهيز التفاصيل.",
     emptyText: "هذا القسم مربوط ببيانات typed بدون اختراع شهادات أو إنجازات.",
   },

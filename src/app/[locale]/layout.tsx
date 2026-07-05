@@ -87,6 +87,8 @@ export default async function LocaleLayout({
       lang={localeParam}
       dir={getTextDirection(localeParam)}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full bg-background text-foreground">
         <SkipLink />
