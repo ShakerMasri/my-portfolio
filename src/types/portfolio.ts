@@ -74,6 +74,21 @@ export type SkillCategory = {
   skills: readonly string[];
 };
 
+export type CertificationType = "course" | "workshop";
+
+export type CertificationStatus = "completed" | "in-progress";
+
+export type CertificationConfig = {
+  title: LocalizedText;
+  provider: LocalizedText;
+  type: CertificationType;
+  status: CertificationStatus;
+  date?: LocalizedText;
+  detail?: LocalizedText;
+  description: LocalizedText;
+  topics?: readonly LocalizedText[];
+};
+
 export type ProjectStatus = "planned" | "in-progress" | "completed";
 
 export type ProjectRepositoryStatus = "public" | "private" | "available-on-request";

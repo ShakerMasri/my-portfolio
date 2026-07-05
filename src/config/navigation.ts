@@ -16,6 +16,13 @@ export const navigation = [
     },
   },
   {
+    href: "#certifications",
+    label: {
+      en: "Certificates",
+      ar: "الشهادات",
+    },
+  },
+  {
     href: "#projects",
     label: {
       en: "Projects",

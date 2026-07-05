@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { AboutSection } from "@/components/sections/about-section";
+import { CertificationsSection } from "@/components/sections/certifications-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
@@ -24,6 +25,7 @@ export default async function Home({ params }: HomePageProps) {
       <HeroSection locale={localeParam} />
       <AboutSection locale={localeParam} />
       <SkillsSection locale={localeParam} />
+      <CertificationsSection locale={localeParam} />
       <ProjectsSection locale={localeParam} />
       <ContactSection locale={localeParam} />
     </>
