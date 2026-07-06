@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import type {
   Locale,
   ProjectCaseStudyMedia,
@@ -32,6 +33,7 @@ const pageCopy = {
     noScreenshots:
       "Screenshots and a short walkthrough can be added later after the project is recorded cleanly.",
     videoFallback: "Your browser does not support embedded videos.",
+    openScreenshotLabel: "Open full screenshot",
   },
   ar: {
     backToProjects: "العودة إلى المشاريع",
@@ -45,6 +47,7 @@ const pageCopy = {
     noScreenshots:
       "يمكن إضافة الصور وشرح قصير لاحقاً بعد تسجيل المشروع وتجهيزه بشكل مرتب.",
     videoFallback: "المتصفح لا يدعم تشغيل الفيديو داخل الصفحة.",
+    openScreenshotLabel: "فتح الصورة كاملة",
   },
 } as const;
 
@@ -122,6 +125,19 @@ type DeviceVideoFrameProps = Readonly<{
   variant: "desktop" | "mobile";
 }>;
 
+type ProjectScreenshotGalleryProps = Readonly<{
+  locale: Locale;
+  openScreenshotLabel: string;
+  screenshots: NonNullable<ProjectCaseStudyMedia["screenshots"]>;
+}>;
+
+type ScreenshotGalleryCardProps = Readonly<{
+  locale: Locale;
+  openScreenshotLabel: string;
+  screenshot: NonNullable<ProjectCaseStudyMedia["screenshots"]>["images"][number];
+  variant: "featured" | "secondary" | "compact";
+}>;
+
 function ProjectMediaSection({
   locale,
   media,
@@ -168,12 +184,132 @@ function ProjectMediaSection({
                 videoFallback={videoFallback}
               />
             </div>
+
+            {media.screenshots && (
+              <ProjectScreenshotGallery
+                locale={locale}
+                openScreenshotLabel={pageCopy[locale].openScreenshotLabel}
+                screenshots={media.screenshots}
+              />
+            )}
           </div>
         </Reveal>
       </Container>
     </section>
   );
 }
+
+function ProjectScreenshotGallery({
+  locale,
+  openScreenshotLabel,
+  screenshots,
+}: ProjectScreenshotGalleryProps) {
+  const [featuredScreenshot, secondaryScreenshot, ...supportingScreenshots] =
+    screenshots.images;
+
+  return (
+    <div className="mt-10 border-t border-purple-100/80 pt-8 dark:border-white/10 sm:mt-12 sm:pt-10">
+      <div className="grid gap-4 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+        <h3 className="max-w-2xl text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-3xl">
+          {getLocalizedText(screenshots.title, locale)}
+        </h3>
+        <p className="max-w-3xl text-sm leading-7 text-zinc-600 dark:text-zinc-300 sm:text-base sm:leading-8 lg:justify-self-end">
+          {getLocalizedText(screenshots.description, locale)}
+        </p>
+      </div>
+
+      {featuredScreenshot && (
+        <div className="mt-6 grid gap-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.75fr)]">
+          <ScreenshotGalleryCard
+            locale={locale}
+            openScreenshotLabel={openScreenshotLabel}
+            screenshot={featuredScreenshot}
+            variant="featured"
+          />
+
+          {secondaryScreenshot && (
+            <ScreenshotGalleryCard
+              locale={locale}
+              openScreenshotLabel={openScreenshotLabel}
+              screenshot={secondaryScreenshot}
+              variant="secondary"
+            />
+          )}
+        </div>
+      )}
+
+      {supportingScreenshots.length > 0 && (
+        <ul className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {supportingScreenshots.map((screenshot) => (
+            <li key={screenshot.src}>
+              <ScreenshotGalleryCard
+                locale={locale}
+                openScreenshotLabel={openScreenshotLabel}
+                screenshot={screenshot}
+                variant="compact"
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function ScreenshotGalleryCard({
+  locale,
+  openScreenshotLabel,
+  screenshot,
+  variant,
+}: ScreenshotGalleryCardProps) {
+  const alt = getLocalizedText(screenshot.alt, locale);
+  const caption = getLocalizedText(screenshot.caption, locale);
+  const isFeatured = variant === "featured";
+
+  return (
+    <a
+      aria-label={`${openScreenshotLabel}: ${alt}`}
+      className="group block h-full rounded-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-600 dark:focus-visible:outline-purple-300"
+      href={screenshot.src}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <figure className="flex h-full flex-col overflow-hidden rounded-3xl border border-purple-100/80 bg-white shadow-lg shadow-purple-950/5 transition duration-300 group-hover:-translate-y-1 group-hover:border-purple-200 group-hover:shadow-xl group-hover:shadow-purple-950/10 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 dark:group-hover:border-white/20 motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+        <div
+          className="flex items-center gap-1.5 border-b border-purple-100/80 bg-zinc-50/80 px-4 py-2 dark:border-white/10 dark:bg-zinc-900/80"
+          aria-hidden="true"
+        >
+          <span className="size-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+          <span className="size-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+          <span className="size-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+          <span className="ms-2 h-1.5 flex-1 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+        </div>
+
+        <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+          <Image
+            alt={alt}
+            className="object-cover object-top transition duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            fill
+            sizes={
+              isFeatured
+                ? "(min-width: 1024px) 55vw, 100vw"
+                : "(min-width: 1280px) 24rem, (min-width: 768px) 50vw, 100vw"
+            }
+            src={screenshot.src}
+          />
+        </div>
+
+        <figcaption className="flex flex-1 flex-col justify-between gap-3 px-5 py-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+          <span>{caption}</span>
+          <span className="text-xs font-semibold text-purple-700 dark:text-purple-300">
+            {openScreenshotLabel}
+          </span>
+        </figcaption>
+      </figure>
+    </a>
+  );
+}
+
 
 function DeviceVideoFrame({
   locale,
@@ -219,11 +355,11 @@ function DeviceVideoFrame({
   return (
     <figure className="min-w-0">
       <div className="rounded-[1.6rem] border border-zinc-800 bg-zinc-950 p-2 shadow-2xl shadow-purple-950/20 ring-1 ring-white/10 dark:border-white/10 dark:shadow-black/40 sm:p-3">
-        <div className="aspect-video overflow-hidden rounded-[1.05rem] border border-white/10 bg-zinc-900">
+        <div className="aspect-[16/9] overflow-hidden rounded-[1.05rem] border border-white/10 bg-zinc-900">
           <video
             aria-label={label}
             autoPlay
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             controls
             loop
             muted

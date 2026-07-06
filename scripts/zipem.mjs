@@ -23,8 +23,13 @@ const filesToZip = [
   "src/app/[locale]/projects/[slug]/page.tsx",
   "src/config/projects.ts",
   "src/types/portfolio.ts",
-  "src/i18n/locales.ts",
-  "src/app/globals.css",
+  "public/images/home-dark.webp",
+  "public/images/home-light.webp",
+  "public/images/products.webp",
+  "public/images/product.webp",
+  "public/images/cart.webp",
+  "public/images/admin-products.webp",
+  "public/images/admin-orders.webp",
 ];
 
 function isInside(parent, child) {

@@ -126,6 +126,95 @@ export const projects = [
             ar: "عرض الهاتف — نفس تدفق المنتجات داخل تصميم متجاوب ومناسب للشاشة الصغيرة.",
           },
         },
+        screenshots: {
+          title: {
+            en: "Product tour screenshots",
+            ar: "صور سريعة من المشروع",
+          },
+          description: {
+            en: "A focused gallery showing the main storefront and admin screens. The images use demo content only and are placed after the videos so the page first communicates the experience, then gives recruiters a quick scan of the key flows.",
+            ar: "معرض مختصر يوضح أهم شاشات المتجر ولوحة الإدارة. الصور تستخدم محتوى تجريبياً فقط، وتم وضعها بعد الفيديوهات حتى تعرض الصفحة التجربة أولاً ثم تعطي الزائر نظرة سريعة على أهم التدفقات.",
+          },
+          images: [
+            {
+              src: "/images/home-dark.webp",
+              alt: {
+                en: "Dark mode homepage screenshot for the clothing ecommerce template",
+                ar: "صورة الصفحة الرئيسية بالوضع الداكن لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Homepage in dark mode with the storefront entry point.",
+                ar: "الصفحة الرئيسية بالوضع الداكن كنقطة دخول للمتجر.",
+              },
+            },
+            {
+              src: "/images/home-light.webp",
+              alt: {
+                en: "Light mode homepage screenshot for the clothing ecommerce template",
+                ar: "صورة الصفحة الرئيسية بالوضع الفاتح لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Light mode version to show theme consistency.",
+                ar: "نسخة الوضع الفاتح لإظهار ثبات التصميم بين الثيمات.",
+              },
+            },
+            {
+              src: "/images/products.webp",
+              alt: {
+                en: "Products listing screenshot for the clothing ecommerce template",
+                ar: "صورة صفحة عرض المنتجات لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Product listing with browsing and catalog presentation.",
+                ar: "صفحة المنتجات مع عرض الكتالوج وتجربة التصفح.",
+              },
+            },
+            {
+              src: "/images/product.webp",
+              alt: {
+                en: "Product details screenshot for the clothing ecommerce template",
+                ar: "صورة صفحة تفاصيل المنتج لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Product details with the customer decision flow.",
+                ar: "تفاصيل المنتج ضمن تدفق قرار العميل قبل الإضافة للسلة.",
+              },
+            },
+            {
+              src: "/images/cart.webp",
+              alt: {
+                en: "Shopping cart screenshot for the clothing ecommerce template",
+                ar: "صورة سلة الشراء لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Cart screen before checkout.",
+                ar: "شاشة السلة قبل إتمام الطلب.",
+              },
+            },
+            {
+              src: "/images/admin-products.webp",
+              alt: {
+                en: "Admin products management screenshot for the clothing ecommerce template",
+                ar: "صورة إدارة المنتجات في لوحة التحكم لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Admin product management for maintaining the catalog.",
+                ar: "إدارة المنتجات داخل لوحة التحكم لتحديث الكتالوج.",
+              },
+            },
+            {
+              src: "/images/admin-orders.webp",
+              alt: {
+                en: "Admin orders management screenshot for the clothing ecommerce template",
+                ar: "صورة إدارة الطلبات في لوحة التحكم لقالب متجر الملابس",
+              },
+              caption: {
+                en: "Admin orders view for reviewing and updating customer orders.",
+                ar: "عرض الطلبات في لوحة التحكم لمراجعة وتحديث طلبات العملاء.",
+              },
+            },
+          ],
+        },
       },
       meta: [
         {
