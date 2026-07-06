@@ -10,6 +10,7 @@ export const siteConfig = {
     en: "Professional portfolio for Shaker Al-Masri, a Computer Engineering student and full-stack web developer.",
     ar: "ملف شخصي احترافي لشاكر المصري، طالب هندسة حاسوب ومطوّر ويب Full-stack.",
   },
+  url: "https://shakerweb.com",
   defaultLocale: "en",
   supportedLocales: ["en", "ar"],
 } as const satisfies SiteConfig;
