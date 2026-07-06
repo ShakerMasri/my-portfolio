@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import type {
+  Locale,
+  ProjectCaseStudyMedia,
+  ProjectCaseStudyMediaVideo,
+} from "@/types/portfolio";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/container";
@@ -26,6 +31,7 @@ const pageCopy = {
     supplementaryLabel: "Supporting project details",
     noScreenshots:
       "Screenshots and a short walkthrough can be added later after the project is recorded cleanly.",
+    videoFallback: "Your browser does not support embedded videos.",
   },
   ar: {
     backToProjects: "العودة إلى المشاريع",
@@ -38,6 +44,7 @@ const pageCopy = {
     supplementaryLabel: "تفاصيل إضافية عن المشروع",
     noScreenshots:
       "يمكن إضافة الصور وشرح قصير لاحقاً بعد تسجيل المشروع وتجهيزه بشكل مرتب.",
+    videoFallback: "المتصفح لا يدعم تشغيل الفيديو داخل الصفحة.",
   },
 } as const;
 
@@ -101,6 +108,147 @@ export async function generateMetadata({
   };
 }
 
+type ProjectMediaSectionProps = Readonly<{
+  locale: Locale;
+  media: ProjectCaseStudyMedia;
+  titleId: string;
+  videoFallback: string;
+}>;
+
+type DeviceVideoFrameProps = Readonly<{
+  locale: Locale;
+  video: ProjectCaseStudyMediaVideo;
+  videoFallback: string;
+  variant: "desktop" | "mobile";
+}>;
+
+function ProjectMediaSection({
+  locale,
+  media,
+  titleId,
+  videoFallback,
+}: ProjectMediaSectionProps) {
+  return (
+    <section
+      aria-labelledby={titleId}
+      className="border-t border-purple-100/80 bg-[linear-gradient(180deg,_rgba(255,255,255,0.78),_rgba(250,245,255,0.92))] py-16 dark:border-white/10 dark:bg-zinc-950 dark:bg-none sm:py-20"
+    >
+      <Container>
+        <Reveal>
+          <div className="overflow-hidden rounded-[2rem] border border-purple-100/80 bg-white/90 p-4 shadow-2xl shadow-purple-950/10 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/30 sm:p-6 lg:p-8">
+            <div className="grid gap-5 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+              <div>
+                <p className="text-sm font-medium uppercase tracking-[0.24em] text-purple-700 dark:text-purple-300">
+                  {getLocalizedText(media.eyebrow, locale)}
+                </p>
+                <h2
+                  id={titleId}
+                  className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl"
+                >
+                  {getLocalizedText(media.title, locale)}
+                </h2>
+              </div>
+
+              <p className="max-w-3xl text-sm leading-7 text-zinc-600 dark:text-zinc-300 sm:text-base sm:leading-8 lg:justify-self-end">
+                {getLocalizedText(media.description, locale)}
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end">
+              <DeviceVideoFrame
+                locale={locale}
+                variant="desktop"
+                video={media.desktop}
+                videoFallback={videoFallback}
+              />
+              <DeviceVideoFrame
+                locale={locale}
+                variant="mobile"
+                video={media.mobile}
+                videoFallback={videoFallback}
+              />
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+function DeviceVideoFrame({
+  locale,
+  video,
+  videoFallback,
+  variant,
+}: DeviceVideoFrameProps) {
+  const caption = getLocalizedText(video.caption, locale);
+  const label = getLocalizedText(video.label, locale);
+
+  if (variant === "mobile") {
+    return (
+      <figure className="mx-auto w-full max-w-[16rem] lg:pb-8">
+        <div className="relative rounded-[2.4rem] border border-zinc-800 bg-zinc-950 p-2 shadow-2xl shadow-purple-950/20 ring-1 ring-white/10 dark:border-white/10 dark:shadow-black/40">
+          <span
+            className="absolute left-1/2 top-3 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-zinc-800 ring-1 ring-white/10"
+            aria-hidden="true"
+          />
+          <div className="aspect-[9/19] overflow-hidden rounded-[1.85rem] border border-white/10 bg-zinc-900">
+            <video
+              aria-label={label}
+              autoPlay
+              className="h-full w-full object-cover"
+              controls
+              loop
+              muted
+              playsInline
+              poster={video.poster}
+              preload="metadata"
+            >
+              <source src={video.src} type="video/mp4" />
+              {videoFallback}
+            </video>
+          </div>
+        </div>
+        <figcaption className="mt-4 text-center text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+          {caption}
+        </figcaption>
+      </figure>
+    );
+  }
+
+  return (
+    <figure className="min-w-0">
+      <div className="rounded-[1.6rem] border border-zinc-800 bg-zinc-950 p-2 shadow-2xl shadow-purple-950/20 ring-1 ring-white/10 dark:border-white/10 dark:shadow-black/40 sm:p-3">
+        <div className="aspect-video overflow-hidden rounded-[1.05rem] border border-white/10 bg-zinc-900">
+          <video
+            aria-label={label}
+            autoPlay
+            className="h-full w-full object-cover"
+            controls
+            loop
+            muted
+            playsInline
+            poster={video.poster}
+            preload="metadata"
+          >
+            <source src={video.src} type="video/mp4" />
+            {videoFallback}
+          </video>
+        </div>
+      </div>
+      <div
+        className="mx-auto h-3 w-[92%] rounded-b-[1.25rem] bg-zinc-800 shadow-lg shadow-purple-950/10 dark:bg-zinc-900"
+        aria-hidden="true"
+      >
+        <div className="mx-auto h-1 w-24 rounded-b-full bg-zinc-700 dark:bg-zinc-800" />
+      </div>
+      <figcaption className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale: localeParam, slug } = await params;
 
@@ -118,15 +266,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const caseStudy = project.caseStudy;
   const projectTitle = getLocalizedText(project.title, localeParam);
   const liveLink = project.links?.live;
-  const liveLabel = liveLink?.label ? getLocalizedText(liveLink.label, localeParam) : copy.liveLabel;
-  const liveNote = liveLink?.note ? getLocalizedText(liveLink.note, localeParam) : undefined;
+  const liveLabel = liveLink?.label
+    ? getLocalizedText(liveLink.label, localeParam)
+    : copy.liveLabel;
+  const liveNote = liveLink?.note
+    ? getLocalizedText(liveLink.note, localeParam)
+    : undefined;
   const demoDataNotice = liveLink?.dataNotice
     ? getLocalizedText(liveLink.dataNotice, localeParam)
     : undefined;
   const repositoryNote = project.repository?.note
     ? getLocalizedText(project.repository.note, localeParam)
     : undefined;
-  const hasProjectLinks = Boolean(liveLink || project.links?.source || project.repository);
+  const hasProjectLinks = Boolean(
+    liveLink || project.links?.source || project.repository,
+  );
+  const mediaTitleId = `${project.slug}-media-title`;
 
   return (
     <>
@@ -183,12 +338,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </Container>
       </section>
 
+      {caseStudy.media && (
+        <ProjectMediaSection
+          locale={localeParam}
+          media={caseStudy.media}
+          titleId={mediaTitleId}
+          videoFallback={copy.videoFallback}
+        />
+      )}
+
       <section className="border-t border-purple-100/80 bg-white/75 py-16 dark:border-white/10 dark:bg-zinc-950 sm:py-20">
         <Container>
           <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start">
             <div className="space-y-6">
               {caseStudy.sections.map((section, index) => (
-                <Reveal key={section.title.en} delayMs={Math.min(index * 50, 180)}>
+                <Reveal
+                  key={section.title.en}
+                  delayMs={Math.min(index * 50, 180)}
+                >
                   <article className="rounded-3xl border border-purple-100/80 bg-white/90 p-6 shadow-lg shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 sm:p-8">
                     <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
                       {getLocalizedText(section.title, localeParam)}
@@ -196,7 +363,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
                     <div className="mt-5 space-y-4 text-sm leading-7 text-zinc-600 dark:text-zinc-300 sm:text-base sm:leading-8">
                       {section.body.map((paragraph) => (
-                        <p key={paragraph.en}>{getLocalizedText(paragraph, localeParam)}</p>
+                        <p key={paragraph.en}>
+                          {getLocalizedText(paragraph, localeParam)}
+                        </p>
                       ))}
                     </div>
 
@@ -263,9 +432,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     {project.repository && (
                       <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm leading-6 text-zinc-600 dark:border-white/10 dark:bg-zinc-900/70 dark:text-zinc-300">
                         <p className="font-semibold text-zinc-800 dark:text-zinc-100">
-                          {getLocalizedText(project.repository.label, localeParam)}
+                          {getLocalizedText(
+                            project.repository.label,
+                            localeParam,
+                          )}
                         </p>
-                        {repositoryNote && <p className="mt-1">{repositoryNote}</p>}
+                        {repositoryNote && (
+                          <p className="mt-1">{repositoryNote}</p>
+                        )}
                       </div>
                     )}
                   </div>
@@ -277,7 +451,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
                     {copy.techLabel}
                   </p>
-                  <ul className="mt-4 flex flex-wrap gap-2" aria-label={copy.techLabel}>
+                  <ul
+                    className="mt-4 flex flex-wrap gap-2"
+                    aria-label={copy.techLabel}
+                  >
                     {project.tags.map((tag) => (
                       <li
                         key={tag}
@@ -309,11 +486,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </Reveal>
 
-              <Reveal delayMs={200}>
-                <div className="rounded-3xl border border-dashed border-purple-200 bg-purple-50/70 p-6 text-sm leading-6 text-purple-950 shadow-sm shadow-purple-950/5 dark:border-purple-400/30 dark:bg-purple-400/10 dark:text-purple-100 dark:shadow-black/20">
-                  {copy.noScreenshots}
-                </div>
-              </Reveal>
+              {!caseStudy.media && (
+                <Reveal delayMs={200}>
+                  <div className="rounded-3xl border border-dashed border-purple-200 bg-purple-50/70 p-6 text-sm leading-6 text-purple-950 shadow-sm shadow-purple-950/5 dark:border-purple-400/30 dark:bg-purple-400/10 dark:text-purple-100 dark:shadow-black/20">
+                    {copy.noScreenshots}
+                  </div>
+                </Reveal>
+              )}
             </aside>
           </div>
         </Container>

@@ -91,6 +91,42 @@ export const projects = [
         en: "This project started as a learn-by-doing full-stack challenge and grew into a reusable ecommerce template for small clothing stores. It focuses on practical store workflows, bilingual UI, admin management, server-side validation, variant-level stock, and deployment readiness.",
         ar: "بدأ هذا المشروع كتجربة تعلم عملية لبناء مشروع Full-stack، ثم تطور إلى قالب متجر إلكتروني قابل لإعادة الاستخدام لمتاجر الملابس الصغيرة. يركز على تدفقات متجر واقعية، واجهة ثنائية اللغة، لوحة إدارة، تحقق على السيرفر، مخزون حسب المتغيرات، وتجهيز للنشر.",
       },
+      media: {
+        eyebrow: {
+          en: "Project walkthrough",
+          ar: "عرض المشروع",
+        },
+        title: {
+          en: "A quick look at the storefront and responsive experience",
+          ar: "نظرة سريعة على واجهة المتجر وتجربة الاستخدام المتجاوبة",
+        },
+        description: {
+          en: "These local demo videos show the project using demo data only. The desktop view is the main walkthrough, while the phone view shows how the same store experience adapts to smaller screens.",
+          ar: "هذه الفيديوهات المحلية تعرض المشروع باستخدام بيانات تجريبية فقط. عرض سطح المكتب هو المشهد الرئيسي، بينما يوضح عرض الهاتف كيف تتكيف تجربة المتجر نفسها مع الشاشات الصغيرة.",
+        },
+        desktop: {
+          src: "/videos/desktop-view.mp4",
+          label: {
+            en: "Desktop walkthrough video for the clothing ecommerce template",
+            ar: "فيديو استعراض نسخة سطح المكتب لقالب متجر الملابس",
+          },
+          caption: {
+            en: "Desktop view — wider layout for browsing, checkout, and admin workflows.",
+            ar: "عرض سطح المكتب — مساحة أوسع لتصفح المنتجات، الطلب، وتدفقات لوحة الإدارة.",
+          },
+        },
+        mobile: {
+          src: "/videos/mobile-view.mp4",
+          label: {
+            en: "Mobile walkthrough video for the clothing ecommerce template",
+            ar: "فيديو استعراض نسخة الهاتف لقالب متجر الملابس",
+          },
+          caption: {
+            en: "Mobile view — the same product flow presented in a compact responsive layout.",
+            ar: "عرض الهاتف — نفس تدفق المنتجات داخل تصميم متجاوب ومناسب للشاشة الصغيرة.",
+          },
+        },
+      },
       meta: [
         {
           label: {

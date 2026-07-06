@@ -20,34 +20,11 @@ const outputPath = resolve(repoRoot, outputName);
 const stagingDir = resolve(repoRoot, ".tmp-portfolio-checkpoint-files");
 
 const filesToZip = [
-  "src/app/[locale]/layout.tsx",
-  "src/app/[locale]/page.tsx",
   "src/app/[locale]/projects/[slug]/page.tsx",
-  "src/app/globals.css",
-  "src/config/index.ts",
-  "src/config/site.ts",
-  "src/config/profile.ts",
-  "src/config/navigation.ts",
   "src/config/projects.ts",
-  "src/config/skills.ts",
-  "src/config/certifications.ts",
-  "src/config/socials.ts",
-  "src/i18n/locales.ts",
   "src/types/portfolio.ts",
-  "src/components/layout/site-header.tsx",
-  "src/components/layout/site-footer.tsx",
-  "src/components/layout/language-switcher.tsx",
-  "src/components/layout/skip-link.tsx",
-  "src/components/ui/container.tsx",
-  "src/components/ui/section.tsx",
-  "src/components/ui/reveal.tsx",
-  "src/components/ui/theme-toggle.tsx",
-  "src/components/sections/hero-section.tsx",
-  "src/components/sections/about-section.tsx",
-  "src/components/sections/skills-section.tsx",
-  "src/components/sections/certifications-section.tsx",
-  "src/components/sections/projects-section.tsx",
-  "src/components/sections/contact-section.tsx",
+  "src/i18n/locales.ts",
+  "src/app/globals.css",
 ];
 
 function isInside(parent, child) {

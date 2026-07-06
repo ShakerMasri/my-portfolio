@@ -117,12 +117,28 @@ export type ProjectCaseStudySection = {
   bullets?: readonly LocalizedText[];
 };
 
+export type ProjectCaseStudyMediaVideo = {
+  src: `/${string}`;
+  poster?: `/${string}`;
+  label: LocalizedText;
+  caption: LocalizedText;
+};
+
+export type ProjectCaseStudyMedia = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  description: LocalizedText;
+  desktop: ProjectCaseStudyMediaVideo;
+  mobile: ProjectCaseStudyMediaVideo;
+};
+
 export type ProjectCaseStudy = {
   eyebrow: LocalizedText;
   title: LocalizedText;
   summary: LocalizedText;
   meta: readonly ProjectCaseStudyMetaItem[];
   sections: readonly ProjectCaseStudySection[];
+  media?: ProjectCaseStudyMedia;
 };
 
 export type ProjectConfig = {
