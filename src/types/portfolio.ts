@@ -117,12 +117,41 @@ export type ProjectCaseStudySection = {
   bullets?: readonly LocalizedText[];
 };
 
+export type ProjectCaseStudyMediaVideo = {
+  src: `/${string}`;
+  poster?: `/${string}`;
+  label: LocalizedText;
+  caption: LocalizedText;
+};
+
+export type ProjectCaseStudyMediaScreenshot = {
+  src: `/${string}`;
+  alt: LocalizedText;
+  caption: LocalizedText;
+};
+
+export type ProjectCaseStudyMediaScreenshots = {
+  title: LocalizedText;
+  description: LocalizedText;
+  images: readonly ProjectCaseStudyMediaScreenshot[];
+};
+
+export type ProjectCaseStudyMedia = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  description: LocalizedText;
+  desktop: ProjectCaseStudyMediaVideo;
+  mobile: ProjectCaseStudyMediaVideo;
+  screenshots?: ProjectCaseStudyMediaScreenshots;
+};
+
 export type ProjectCaseStudy = {
   eyebrow: LocalizedText;
   title: LocalizedText;
   summary: LocalizedText;
   meta: readonly ProjectCaseStudyMetaItem[];
   sections: readonly ProjectCaseStudySection[];
+  media?: ProjectCaseStudyMedia;
 };
 
 export type ProjectConfig = {
