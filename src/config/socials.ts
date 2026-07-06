@@ -39,7 +39,7 @@ export const socials = [
       en: "WhatsApp",
       ar: "WhatsApp",
     },
-    href: "https://wa.me/970599355107",
+    href: "https://wa.me/972599355107",
   },
   {
     kind: "phone",
@@ -47,6 +47,6 @@ export const socials = [
       en: "Phone",
       ar: "رقم الهاتف",
     },
-    href: "tel:+970599355107",
+    href: "tel:+972599355107",
   },
 ] as const satisfies readonly SocialLink[];
