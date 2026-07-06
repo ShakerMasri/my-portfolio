@@ -1,13 +1,5 @@
 import type { SocialLink } from "@/types/portfolio";
 
-/**
- * Replace these platform homepage URLs with your real public profiles before publishing.
- * For a direct WhatsApp chat link, use the international number format:
- * https://wa.me/97059XXXXXXX
- *
- * For a phone link, use:
- * tel:+97059XXXXXXX
- */
 export const socials = [
   {
     kind: "github",
@@ -15,7 +7,7 @@ export const socials = [
       en: "GitHub",
       ar: "GitHub",
     },
-    href: "https://github.com/",
+    href: "https://github.com/ShakerMasri",
   },
   {
     kind: "linkedin",
@@ -23,7 +15,7 @@ export const socials = [
       en: "LinkedIn",
       ar: "LinkedIn",
     },
-    href: "https://www.linkedin.com/",
+    href: "https://www.linkedin.com/in/shaker-al-masri/",
   },
   {
     kind: "facebook",
@@ -31,7 +23,7 @@ export const socials = [
       en: "Facebook",
       ar: "Facebook",
     },
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/shaker.almasri.75/",
   },
   {
     kind: "instagram",
@@ -39,7 +31,7 @@ export const socials = [
       en: "Instagram",
       ar: "Instagram",
     },
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/shaker_al_masri/",
   },
   {
     kind: "whatsapp",
@@ -47,7 +39,7 @@ export const socials = [
       en: "WhatsApp",
       ar: "WhatsApp",
     },
-    href: "https://www.whatsapp.com/",
+    href: "https://wa.me/970599355107",
   },
   {
     kind: "phone",
@@ -55,6 +47,6 @@ export const socials = [
       en: "Phone",
       ar: "رقم الهاتف",
     },
-    href: "tel:+970590000000",
+    href: "tel:+970599355107",
   },
 ] as const satisfies readonly SocialLink[];

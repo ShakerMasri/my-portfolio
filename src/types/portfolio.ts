@@ -6,6 +6,7 @@ export type SiteConfig = {
   name: string;
   title: LocalizedText;
   description: LocalizedText;
+  url: string;
   defaultLocale: Locale;
   supportedLocales: readonly Locale[];
 };
@@ -91,7 +92,10 @@ export type CertificationConfig = {
 
 export type ProjectStatus = "planned" | "in-progress" | "completed";
 
-export type ProjectRepositoryStatus = "public" | "private" | "available-on-request";
+export type ProjectRepositoryStatus =
+  | "public"
+  | "private"
+  | "available-on-request";
 
 export type ProjectLiveDemoLink = {
   href: `https://${string}`;

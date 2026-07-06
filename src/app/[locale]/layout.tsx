@@ -46,7 +46,16 @@ export async function generateMetadata({
       template: `%s | ${siteConfig.name}`,
     },
     description,
+    applicationName: siteConfig.name,
+    authors: [{ name: siteConfig.name }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
+      canonical: `/${locale}`,
       languages: Object.fromEntries(
         siteConfig.supportedLocales.map((supportedLocale) => [
           supportedLocale,
