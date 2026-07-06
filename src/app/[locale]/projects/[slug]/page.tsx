@@ -83,6 +83,7 @@ export async function generateMetadata({
   const description = getLocalizedText(project.summary, localeParam);
 
   return {
+    metadataBase: new URL(siteConfig.url),
     title,
     description,
     authors: [{ name: siteConfig.name }],
@@ -105,6 +106,7 @@ export async function generateMetadata({
       description,
       siteName: siteConfig.name,
       type: "article",
+      url: `/${localeParam}/projects/${project.slug}`,
       locale: localeParam,
       alternateLocale: siteConfig.supportedLocales.filter(
         (supportedLocale) => supportedLocale !== localeParam,

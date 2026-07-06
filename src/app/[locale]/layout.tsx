@@ -41,6 +41,7 @@ export async function generateMetadata({
   const description = siteConfig.description[locale];
 
   return {
+    metadataBase: new URL(siteConfig.url),
     title: {
       default: title,
       template: `%s | ${siteConfig.name}`,
@@ -68,6 +69,7 @@ export async function generateMetadata({
       description,
       siteName: siteConfig.name,
       type: "website",
+      url: `/${locale}`,
       locale,
       alternateLocale: siteConfig.supportedLocales.filter(
         (supportedLocale) => supportedLocale !== locale,
