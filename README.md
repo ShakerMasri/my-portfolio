@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shaker Al-Masri — Portfolio
 
-## Getting Started
+Personal portfolio for **Shaker Al-Masri**, a final-year Computer Engineering student focused on backend/software engineering with full-stack development capability.
 
-First, run the development server:
+**Live site:** https://shakerweb.com
+
+## What this portfolio emphasizes
+
+- Backend-focused software engineering positioning with honest junior-level scope.
+- Featured project case studies, including Wasel Palestine and a full-stack clothing ecommerce project.
+- Bilingual English/Arabic content with LTR/RTL support.
+- Responsive light/dark UI with keyboard-visible focus states and reduced-motion support.
+- Typed, config-driven portfolio content so projects, skills, education, certificates, navigation, and profile data stay maintainable.
+
+## Main technologies
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+
+## Local development
+
+Install dependencies and start the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The repository currently provides these validation scripts:
 
-## Learn More
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+src/app/[locale]/        Localized routes, layouts, metadata, and project pages
+src/components/layout/   Header, footer, locale/theme controls, and navigation
+src/components/sections/ Homepage sections
+src/components/ui/       Small shared UI primitives
+src/config/              Typed portfolio content and site configuration
+src/i18n/                Locale helpers
+src/types/               Portfolio configuration types
+public/                  Local images and project media
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Localization and accessibility
 
-## Deploy on Vercel
+The site supports English and Arabic, sets the document language and text direction per locale, and preserves keyboard focus styles throughout the interface. Motion-related UI respects `prefers-reduced-motion`, and the mobile/tablet navigation uses an accessible disclosure button with explicit expanded state and Escape-to-close behavior.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content approach
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Projects are the primary evidence in the portfolio. Team work and personal contributions are separated where relevant, and project claims are kept specific rather than implying seniority or production scale.

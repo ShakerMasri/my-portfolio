@@ -23,8 +23,7 @@ const certificationsSectionCopy = {
     eyebrow: "Certifications & Workshops",
     title: "Learning milestones that support my project work.",
     description:
-      "A focused list of completed courses and workshop certificates. The section is kept concise so certificates support the portfolio without replacing real project evidence.",
-    topicsLabel: "Covered topics",
+      "A compact record of completed and in-progress learning that supports the project work above.",
     emptyTitle: "Certifications will be added after the details are ready.",
     emptyText:
       "This section is wired to typed certification data without inventing credentials.",
@@ -33,8 +32,7 @@ const certificationsSectionCopy = {
     eyebrow: "الشهادات وورش العمل",
     title: "محطات تعلم تدعم عملي على المشاريع.",
     description:
-      "قائمة مركّزة للدورات المكتملة وشهادات ورش العمل. أبقي هذا القسم مختصراً حتى يدعم المشاريع بدون أن يحل مكان إثبات العمل العملي.",
-    topicsLabel: "المواضيع المغطاة",
+      "سجل مختصر للتعلم المكتمل والجاري، يدعم المشاريع العملية المعروضة أعلاه.",
     emptyTitle: "ستتم إضافة الشهادات بعد تجهيز التفاصيل.",
     emptyText: "هذا القسم مربوط ببيانات typed بدون اختراع شهادات أو إنجازات.",
   },
@@ -63,7 +61,6 @@ const typeLabels: Record<Locale, Record<CertificationType, string>> = {
 };
 
 function CertificationCard({ certification, locale }: CertificationCardProps) {
-  const copy = certificationsSectionCopy[locale];
   const title = getLocalizedText(certification.title, locale);
   const provider = getLocalizedText(certification.provider, locale);
   const date = certification.date
@@ -73,64 +70,37 @@ function CertificationCard({ certification, locale }: CertificationCardProps) {
     ? getLocalizedText(certification.detail, locale)
     : undefined;
   const description = getLocalizedText(certification.description, locale);
+  const metadata = [date, detail].filter(
+    (value): value is string => Boolean(value),
+  );
 
   return (
-    <article className="flex h-full flex-col rounded-3xl border border-purple-200/70 bg-white p-6 shadow-xl shadow-purple-950/10 ring-1 ring-white/80 transition duration-200 hover:-translate-y-0.5 hover:border-purple-300 hover:shadow-purple-950/20 dark:border-white/10 dark:bg-zinc-950 dark:shadow-black/20 dark:ring-transparent dark:hover:border-purple-400/30 motion-reduce:transition-none sm:p-7">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-purple-200 bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-900 dark:border-purple-400/20 dark:bg-purple-400/10 dark:text-purple-200">
-          {statusLabels[locale][certification.status]}
-        </span>
-        <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-semibold text-zinc-600 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-300">
+    <article className="h-full rounded-2xl border border-purple-200/60 bg-white/80 p-5 shadow-sm shadow-purple-950/5 ring-1 ring-white/70 dark:border-white/10 dark:bg-zinc-950 dark:shadow-none dark:ring-transparent">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
           {typeLabels[locale][certification.type]}
         </span>
+        <span className="rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-semibold text-purple-900 dark:border-purple-400/20 dark:bg-purple-400/10 dark:text-purple-200">
+          {statusLabels[locale][certification.status]}
+        </span>
       </div>
 
-      <div className="mt-5">
-        <h3 className="text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm font-medium text-purple-800 dark:text-purple-200">
-          {provider}
-        </p>
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-zinc-600 dark:text-zinc-300">
-        {date && (
-          <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 dark:border-white/10 dark:bg-zinc-900">
-            {date}
-          </span>
-        )}
-        {detail && (
-          <span className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 dark:border-white/10 dark:bg-zinc-900">
-            {detail}
-          </span>
-        )}
-      </div>
-
-      <p className="mt-5 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
-        {description}
+      <h3 className="mt-4 text-lg font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        {title}
+      </h3>
+      <p className="mt-1.5 text-sm font-medium text-purple-800 dark:text-purple-200">
+        {provider}
       </p>
 
-      {certification.topics && certification.topics.length > 0 && (
-        <div className="mt-6 border-t border-zinc-200 pt-5 dark:border-white/10">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
-            {copy.topicsLabel}
-          </p>
-          <ul
-            className="mt-3 flex flex-wrap gap-2"
-            aria-label={`${copy.topicsLabel}: ${title}`}
-          >
-            {certification.topics.map((topic) => (
-              <li
-                key={topic.en}
-                className="rounded-full border border-purple-200/80 bg-purple-50 px-3 py-1.5 text-xs font-medium text-purple-950 shadow-sm shadow-purple-950/5 dark:border-white/10 dark:bg-zinc-900 dark:text-zinc-300 dark:shadow-none"
-              >
-                {getLocalizedText(topic, locale)}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {metadata.length > 0 && (
+        <p className="mt-3 text-xs leading-5 text-zinc-500 dark:text-zinc-400">
+          {metadata.join(" · ")}
+        </p>
       )}
+
+      <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-300">
+        {description}
+      </p>
     </article>
   );
 }
@@ -147,18 +117,13 @@ export function CertificationsSection({ locale }: CertificationsSectionProps) {
       className="border-t border-purple-200/70 bg-white/75 dark:border-white/10 dark:bg-zinc-950"
     >
       {certifications.length > 0 ? (
-        <>
-          <div className="grid gap-6 md:grid-cols-2">
-            {certifications.map((certification, index) => (
-              <Reveal key={certification.title.en} delayMs={index * 80}>
-                <CertificationCard
-                  certification={certification}
-                  locale={locale}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </>
+        <div className="grid gap-4 md:grid-cols-2">
+          {certifications.map((certification, index) => (
+            <Reveal key={certification.title.en} delayMs={index * 60}>
+              <CertificationCard certification={certification} locale={locale} />
+            </Reveal>
+          ))}
+        </div>
       ) : (
         <Reveal>
           <div className="rounded-3xl border border-dashed border-purple-300/80 bg-white p-6 shadow-md shadow-purple-950/10 dark:border-purple-400/30 dark:bg-purple-400/5 dark:shadow-black/20 sm:p-8">
