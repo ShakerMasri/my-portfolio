@@ -3,34 +3,34 @@ import type { ProfileConfig } from "@/types/portfolio";
 export const profile = {
   displayName: "Shaker Al-Masri",
   role: {
-    en: "Computer Engineering student & full-stack web developer",
-    ar: "طالب هندسة حاسوب ومطوّر ويب Full-stack",
+    en: "Final-year Computer Engineering student · Backend-focused Software Engineer / Full-stack Developer",
+    ar: "طالب هندسة حاسوب في السنة الأخيرة · مهندس برمجيات يركّز على الباك إند / مطوّر Full-stack",
   },
   shortBio: {
-    en: "I build clean, reliable, and user-focused web experiences while growing my skills in software engineering and computer engineering.",
-    ar: "أبني تجارب ويب نظيفة وموثوقة ومريحة للمستخدم، مع تطوير مهاراتي في هندسة البرمجيات وهندسة الحاسوب.",
+    en: "I focus on backend/software engineering while building complete full-stack applications, with project work across validation, databases, authentication, testing, and deployment.",
+    ar: "أركّز على هندسة البرمجيات والباك إند مع بناء تطبيقات Full-stack متكاملة، ولدي عمل تطبيقي في التحقق، قواعد البيانات، المصادقة، الاختبار، والنشر.",
   },
   photo: {
     src: "/images/profile.webp",
     alt: {
-      en: "Portrait of Shaker Al-Masri, Computer Engineering student and full-stack web developer",
-      ar: "صورة شخصية لشاكر المصري، طالب هندسة حاسوب ومطور ويب Full-stack",
+      en: "Portrait of Shaker Al-Masri",
+      ar: "صورة شخصية لشاكر المصري",
     },
     width: 960,
     height: 1200,
   },
   hero: {
     eyebrow: {
-      en: "Computer Engineering × Full-stack Web Development",
-      ar: "هندسة حاسوب × تطوير ويب Full-stack",
+      en: "Final-year Computer Engineering · Backend-focused Software Engineering",
+      ar: "هندسة حاسوب — السنة الأخيرة · تركيز على هندسة البرمجيات والباك إند",
     },
     headline: {
-      en: "Building reliable web experiences with an engineering mindset.",
-      ar: "أبني تجارب ويب موثوقة بعقلية هندسية.",
+      en: "Backend-focused engineering, with full-stack delivery.",
+      ar: "أركّز على هندسة الباك إند مع القدرة على بناء تطبيقات Full-stack متكاملة.",
     },
     description: {
-      en: "I’m Shaker Al-Masri, a Computer Engineering student and full-stack web developer focused on clean interfaces, practical systems, and maintainable code.",
-      ar: "أنا شاكر المصري، طالب هندسة حاسوب ومطوّر ويب Full-stack أركز على الواجهات النظيفة، الأنظمة العملية، والكود القابل للصيانة.",
+      en: "I’m Shaker Al-Masri, a final-year Computer Engineering student focused on backend/software engineering. My project work spans server-side validation, PostgreSQL and Prisma, authentication, testing, deployment, and the frontend needed to deliver complete applications.",
+      ar: "أنا شاكر المصري، طالب هندسة حاسوب في السنة الأخيرة أركّز على هندسة البرمجيات والباك إند. تشمل مشاريعي التحقق على السيرفر، PostgreSQL وPrisma، المصادقة، الاختبار، النشر، والواجهة اللازمة لبناء تطبيقات متكاملة.",
     },
     primaryAction: {
       label: {
@@ -53,17 +53,17 @@ export const profile = {
       ar: "عني",
     },
     title: {
-      en: "A developer who cares about both the interface and the system behind it.",
-      ar: "مطوّر يهتم بالواجهة وبالنظام الذي يعمل خلفها.",
+      en: "Backend-focused by direction, full-stack by capability.",
+      ar: "تركيزي الأساسي على الباك إند، مع قدرة Full-stack عند بناء التطبيق كاملاً.",
     },
     paragraphs: [
       {
-        en: "I enjoy turning ideas into clear, responsive web experiences that feel simple for users and organized for developers.",
-        ar: "أستمتع بتحويل الأفكار إلى تجارب ويب واضحة ومتجاوبة تكون سهلة للمستخدم ومنظمة للمطوّر.",
+        en: "I’m building toward backend/software engineering roles, with particular interest in data flow, validation, authentication, reliability, testing, and maintainable application structure.",
+        ar: "أبني مساري نحو أدوار هندسة البرمجيات والباك إند، مع اهتمام خاص بتدفق البيانات، التحقق، المصادقة، الاعتمادية، الاختبار، وبنية التطبيقات القابلة للصيانة.",
       },
       {
-        en: "My Computer Engineering background helps me think beyond the screen: performance, data flow, reliability, and how software connects with real systems.",
-        ar: "خلفيتي في هندسة الحاسوب تساعدني على التفكير بما هو أبعد من الواجهة: الأداء، تدفق البيانات، الاعتمادية، وكيف يتصل البرنامج بالأنظمة الحقيقية.",
+        en: "I still work across the full stack when a project needs it. Frontend work is part of delivering complete, usable applications—not the main direction I’m pursuing.",
+        ar: "أعمل أيضاً عبر الـ Full-stack عندما يحتاج المشروع ذلك. الواجهة جزء من تقديم تطبيق متكامل وسهل الاستخدام، لكنها ليست الاتجاه الرئيسي الذي أركز عليه.",
       },
     ],
     highlights: [
@@ -73,8 +73,8 @@ export const profile = {
           ar: "التركيز",
         },
         value: {
-          en: "Full-stack web development",
-          ar: "تطوير ويب Full-stack",
+          en: "Backend / software engineering",
+          ar: "هندسة البرمجيات / الباك إند",
         },
       },
       {
@@ -83,8 +83,8 @@ export const profile = {
           ar: "الخلفية",
         },
         value: {
-          en: "Computer Engineering",
-          ar: "هندسة الحاسوب",
+          en: "Final-year Computer Engineering",
+          ar: "هندسة حاسوب — السنة الأخيرة",
         },
       },
       {
@@ -93,8 +93,8 @@ export const profile = {
           ar: "المبادئ",
         },
         value: {
-          en: "Clean UI, accessibility, maintainability",
-          ar: "واجهة نظيفة، إتاحة، وقابلية للصيانة",
+          en: "Reliability, maintainability, accessible UI",
+          ar: "الاعتمادية، قابلية الصيانة، وواجهة متاحة",
         },
       },
     ],

@@ -24,9 +24,9 @@ export default async function Home({ params }: HomePageProps) {
     <>
       <HeroSection locale={localeParam} />
       <AboutSection locale={localeParam} />
+      <ProjectsSection locale={localeParam} />
       <SkillsSection locale={localeParam} />
       <CertificationsSection locale={localeParam} />
-      <ProjectsSection locale={localeParam} />
       <ContactSection locale={localeParam} />
     </>
   );

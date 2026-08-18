@@ -11,13 +11,13 @@ type ContactSectionProps = Readonly<{
 const contactCopy = {
   en: {
     eyebrow: "Contact",
-    title: "Let’s talk about practical web work and future opportunities.",
+    title: "Let’s talk about software engineering opportunities and practical web systems.",
     description:
       "A simple, direct contact area for professional conversations. For now, contact stays link-based instead of using a form, keeping the site simple, privacy-friendly, and easier to secure.",
     contextTitle: "Good reasons to reach out",
     contextItems: [
-      "Full-stack web development opportunities",
-      "Portfolio, landing page, or small business website work",
+      "Backend and software engineering opportunities",
+      "Full-stack development roles or project collaboration",
       "Collaboration around practical software and Computer Engineering ideas",
     ],
     linksTitle: "Public contact links",
@@ -38,13 +38,13 @@ const contactCopy = {
   },
   ar: {
     eyebrow: "تواصل",
-    title: "لنتحدث عن أعمال ويب عملية وفرص مستقبلية.",
+    title: "لنتحدث عن فرص هندسة البرمجيات وأنظمة ويب عملية.",
     description:
       "قسم تواصل بسيط ومباشر للمحادثات المهنية. حالياً يبقى التواصل عبر الروابط بدل نموذج تواصل، حتى يبقى الموقع بسيطاً، أفضل للخصوصية، وأسهل في التأمين.",
     contextTitle: "أسباب مناسبة للتواصل",
     contextItems: [
-      "فرص تطوير ويب Full-stack",
-      "مواقع شخصية، صفحات تعريفية، أو مواقع بسيطة للأعمال",
+      "فرص في هندسة البرمجيات والباك إند",
+      "أدوار Full-stack أو تعاون في مشاريع برمجية",
       "تعاون حول أفكار برمجية وعملية مرتبطة بهندسة الحاسوب",
     ],
     linksTitle: "روابط التواصل العامة",
