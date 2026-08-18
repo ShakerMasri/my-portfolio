@@ -3,30 +3,48 @@ import type { SkillCategory } from "@/types/portfolio";
 export const skillCategories = [
   {
     title: {
-      en: "Backend and data",
-      ar: "الباك إند والبيانات",
+      en: "Backend & APIs",
+      ar: "الباك إند وواجهات API",
     },
     description: {
-      en: "Server-side work demonstrated through full-stack projects, including validation, persistence, authentication, and transactional logic.",
-      ar: "عمل على السيرفر مطبّق في مشاريع Full-stack، ويشمل التحقق، تخزين البيانات، المصادقة، والمنطق المرتبط بالمعاملات.",
+      en: "Server-side development demonstrated through backend and full-stack projects, with emphasis on APIs, validation, authentication, and business logic.",
+      ar: "تطوير على جانب السيرفر مطبّق في مشاريع باك إند وFull-stack، مع تركيز على واجهات API، التحقق، المصادقة، ومنطق الأعمال.",
     },
     skills: [
-      "Server-side validation",
-      "Prisma ORM",
-      "PostgreSQL",
-      "Authentication flows",
-      "Transactional logic",
-      "Environment configuration",
+      "TypeScript / Node.js",
+      "NestJS",
+      "Next.js server routes",
+      "REST APIs",
+      "Authentication & authorization",
+      "Validation",
+      "Transactional business logic",
     ],
   },
   {
     title: {
-      en: "Frontend and UI",
-      ar: "الواجهة وتجربة المستخدم",
+      en: "Databases & Data Modeling",
+      ar: "قواعد البيانات ونمذجة البيانات",
     },
     description: {
-      en: "Core tools used to build clean, responsive, and maintainable interfaces.",
-      ar: "أدوات أساسية لبناء واجهات نظيفة، متجاوبة، وسهلة الصيانة.",
+      en: "Relational data work across project backends, including schema design, ORM usage, relationships, constraints, and server-side querying.",
+      ar: "عمل على البيانات العلائقية في باك إند المشاريع، ويشمل تصميم المخططات، استخدام ORM، العلاقات، القيود، والاستعلام من جانب السيرفر.",
+    },
+    skills: [
+      "PostgreSQL",
+      "Prisma ORM",
+      "TypeORM",
+      "Relational data modeling",
+      "Server-side querying & pagination",
+    ],
+  },
+  {
+    title: {
+      en: "Frontend",
+      ar: "الواجهة الأمامية",
+    },
+    description: {
+      en: "Frontend tools used to build responsive, accessible interfaces while supporting full-stack application work.",
+      ar: "أدوات واجهة أمامية أستخدمها لبناء واجهات متجاوبة وقابلة للوصول ضمن عملي على تطبيقات Full-stack.",
     },
     skills: [
       "React",
@@ -35,41 +53,25 @@ export const skillCategories = [
       "Tailwind CSS",
       "Responsive layouts",
       "Semantic HTML",
+      "English / Arabic & RTL",
     ],
   },
   {
     title: {
-      en: "Engineering tools and quality",
-      ar: "أدوات الهندسة والجودة",
+      en: "Engineering Tools / Testing / Infrastructure",
+      ar: "أدوات الهندسة والاختبار والبنية التحتية",
     },
     description: {
-      en: "Tools and practices used to keep changes typed, testable, reviewable, and maintainable.",
-      ar: "أدوات وممارسات تساعد على إبقاء التغييرات مقيّدة بالأنواع، قابلة للاختبار والمراجعة والصيانة.",
+      en: "Tools and practices used to keep project changes testable, reviewable, and maintainable without overstating infrastructure experience.",
+      ar: "أدوات وممارسات أستخدمها لإبقاء تغييرات المشاريع قابلة للاختبار والمراجعة والصيانة دون المبالغة في خبرة البنية التحتية.",
     },
     skills: [
       "Git & GitHub",
-      "Typed configuration",
-      "Step-by-step delivery",
       "ESLint",
       "TypeScript type checking",
-      "Vitest / Playwright",
-    ],
-  },
-  {
-    title: {
-      en: "Localization and accessibility",
-      ar: "التعريب والإتاحة",
-    },
-    description: {
-      en: "Practices that make interfaces easier to use across languages, devices, and input methods.",
-      ar: "ممارسات تجعل الواجهات أسهل استخداماً عبر اللغات، الأجهزة، وطرق الإدخال المختلفة.",
-    },
-    skills: [
-      "English / Arabic routes",
-      "RTL layouts",
-      "Keyboard-friendly navigation",
-      "Visible focus states",
-      "Readable content structure",
+      "Vitest",
+      "Playwright",
+      "GitHub Actions CI",
     ],
   },
 ] as const satisfies readonly SkillCategory[];

@@ -11,18 +11,18 @@ type SkillsSectionProps = Readonly<{
 const skillsSectionCopy = {
   en: {
     eyebrow: "Skills",
-    title: "A practical full-stack foundation for reliable web projects.",
+    title: "Backend-focused skills backed by real project work.",
     description:
-      "A focused overview of tools and practices I use across UI, backend, localization, testing, and project workflow.",
+      "A focused view of the technologies and engineering practices I have used across backend, data, frontend, and testing work.",
     noteTitle: "Focused by design",
     noteText:
       "This list stays focused on skills I can demonstrate through real project work. The case studies explain how these tools were used in context.",
   },
   ar: {
     eyebrow: "المهارات",
-    title: "أساس عملي Full-stack لبناء مشاريع ويب موثوقة.",
+    title: "مهارات تركز على الباك إند ومدعومة بمشاريع حقيقية.",
     description:
-      "نظرة مركزة على الأدوات والممارسات التي أستخدمها في الواجهة، الباك إند، التعريب، الاختبار، وأسلوب العمل.",
+      "نظرة مركزة على التقنيات والممارسات الهندسية التي استخدمتها في الباك إند، البيانات، الواجهة، والاختبار.",
     noteTitle: "تركيز مقصود",
     noteText:
       "أبقي هذه القائمة مركزة على مهارات أستطيع إثباتها من خلال مشاريع حقيقية. دراسات المشاريع توضح كيف تم استخدام هذه الأدوات في سياق عملي.",
