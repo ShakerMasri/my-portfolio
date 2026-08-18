@@ -53,6 +53,13 @@ export type NavigationItem = {
   label: LocalizedText;
 };
 
+export type EducationConfig = {
+  program: LocalizedText;
+  institution: LocalizedText;
+  status: LocalizedText;
+  details?: readonly LocalizedText[];
+};
+
 export type SocialLinkKind =
   | "email"
   | "github"

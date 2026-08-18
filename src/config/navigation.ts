@@ -23,6 +23,13 @@ export const navigation = [
     },
   },
   {
+    href: "#education",
+    label: {
+      en: "Education",
+      ar: "التعليم",
+    },
+  },
+  {
     href: "#certifications",
     label: {
       en: "Certificates",
