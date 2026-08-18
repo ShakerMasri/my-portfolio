@@ -29,8 +29,8 @@ export const profile = {
       ar: "أركّز على هندسة الباك إند مع القدرة على بناء تطبيقات Full-stack متكاملة.",
     },
     description: {
-      en: "I’m Shaker Al-Masri, a final-year Computer Engineering student focused on backend/software engineering. My project work spans server-side validation, PostgreSQL and Prisma, authentication, testing, deployment, and the frontend needed to deliver complete applications.",
-      ar: "أنا شاكر المصري، طالب هندسة حاسوب في السنة الأخيرة أركّز على هندسة البرمجيات والباك إند. تشمل مشاريعي التحقق على السيرفر، PostgreSQL وPrisma، المصادقة، الاختبار، النشر، والواجهة اللازمة لبناء تطبيقات متكاملة.",
+      en: "I’m Shaker Al-Masri, a final-year Computer Engineering student at An-Najah National University focused on backend/software engineering. My project work spans server-side validation, databases, authentication, testing, deployment, and the frontend needed to deliver complete applications.",
+      ar: "أنا شاكر المصري، طالب هندسة حاسوب في السنة الأخيرة في جامعة النجاح الوطنية أركّز على هندسة البرمجيات والباك إند. تشمل مشاريعي التحقق على السيرفر، قواعد البيانات، المصادقة، الاختبار، النشر، والواجهة اللازمة لبناء تطبيقات متكاملة.",
     },
     primaryAction: {
       label: {
@@ -83,8 +83,8 @@ export const profile = {
           ar: "الخلفية",
         },
         value: {
-          en: "Final-year Computer Engineering",
-          ar: "هندسة حاسوب — السنة الأخيرة",
+          en: "Final-year Computer Engineering · An-Najah National University",
+          ar: "هندسة حاسوب — السنة الأخيرة · جامعة النجاح الوطنية",
         },
       },
       {

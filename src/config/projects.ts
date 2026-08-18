@@ -2,6 +2,199 @@ import type { ProjectConfig } from "@/types/portfolio";
 
 export const projects = [
   {
+    slug: "wasel-palestine",
+    title: {
+      en: "Wasel Palestine",
+      ar: "واصل فلسطين",
+    },
+    summary: {
+      en: "A university team backend for Palestinian mobility intelligence with versioned APIs for checkpoints, incidents, reports, alerts, and route estimation. My verified contribution focused on route-mobility and external routing reliability.",
+      ar: "مشروع باك إند جامعي جماعي لذكاء التنقل في فلسطين مع APIs بإصدار محدد لنقاط التفتيش والحوادث والبلاغات والتنبيهات وتقدير المسارات. تركزت مساهمتي الموثقة على منطق المسارات واعتمادية التوجيه الخارجي.",
+    },
+    highlights: [
+      {
+        en: "Team project: modular NestJS/TypeScript REST API with PostgreSQL, TypeORM, JWT, validation, and external integrations.",
+        ar: "مشروع جماعي: REST API مبني بوحدات NestJS/TypeScript مع PostgreSQL وTypeORM وJWT والتحقق والتكاملات الخارجية.",
+      },
+      {
+        en: "My contribution: route estimation using route modes, nearby checkpoints, verified incidents, and requested avoid-areas.",
+        ar: "مساهمتي: تقدير المسار باستخدام أنماط الرحلة ونقاط التفتيش القريبة والحوادث الموثقة والمناطق المطلوب تجنبها.",
+      },
+      {
+        en: "My contribution: OpenRouteService integration with caching, configurable timeouts, environment-based configuration, and local fallback.",
+        ar: "مساهمتي: تكامل OpenRouteService مع caching وtimeouts قابلة للإعداد وإعدادات من متغيرات البيئة وبديل محلي عند فشل الخدمة.",
+      },
+      {
+        en: "Team engineering evidence includes Swagger/OpenAPI documentation, automated tests, and k6 performance testing.",
+        ar: "يتضمن العمل الهندسي للفريق توثيق Swagger/OpenAPI واختبارات آلية واختبارات أداء باستخدام k6.",
+      },
+    ],
+    tags: [
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "TypeORM",
+      "JWT",
+      "Swagger / OpenAPI",
+      "Docker",
+    ],
+    status: "completed",
+    featured: true,
+    links: {
+      source: "https://github.com/ShakerMasri/wasel-palestine",
+    },
+    caseStudy: {
+      eyebrow: {
+        en: "Backend case study",
+        ar: "دراسة مشروع باك إند",
+      },
+      title: {
+        en: "Route intelligence around changing mobility data and unreliable external dependencies",
+        ar: "ذكاء للمسارات يتعامل مع بيانات تنقل متغيرة واعتماديات خارجية قد تفشل",
+      },
+      summary: {
+        en: "Wasel Palestine was a university team project focused on backend engineering. The overall system spans mobility data, authentication, moderation, alerts, external APIs, documentation, and performance testing. My verified contribution centered on route-mobility, external routing/configuration, route-related API documentation, and a registration flow.",
+        ar: "واصل فلسطين مشروع جامعي جماعي ركز على هندسة الباك إند. يشمل النظام ككل بيانات التنقل والمصادقة والإشراف والتنبيهات والتكاملات الخارجية والتوثيق واختبارات الأداء. تركزت مساهمتي الموثقة على منطق المسارات والتوجيه الخارجي وإعداداته وتوثيق API المرتبط بالمسارات وتدفق تسجيل المستخدم.",
+      },
+      meta: [
+        {
+          label: {
+            en: "Project type",
+            ar: "نوع المشروع",
+          },
+          value: {
+            en: "University team backend project",
+            ar: "مشروع باك إند جامعي جماعي",
+          },
+        },
+        {
+          label: {
+            en: "Team technologies",
+            ar: "تقنيات الفريق",
+          },
+          value: {
+            en: "NestJS, TypeScript, PostgreSQL, TypeORM, JWT, Swagger/OpenAPI, Docker",
+            ar: "NestJS وTypeScript وPostgreSQL وTypeORM وJWT وSwagger/OpenAPI وDocker",
+          },
+        },
+        {
+          label: {
+            en: "My verified contribution",
+            ar: "مساهمتي الموثقة",
+          },
+          value: {
+            en: "Route-mobility implementation, OpenRouteService integration/configuration, route API documentation, and user registration flow",
+            ar: "تنفيذ منطق المسارات، تكامل وإعداد OpenRouteService، توثيق API للمسارات، وتدفق تسجيل المستخدم",
+          },
+        },
+        {
+          label: {
+            en: "Course context",
+            ar: "سياق المساق",
+          },
+          value: {
+            en: "Advanced Software Engineering · Spring 2026",
+            ar: "هندسة البرمجيات المتقدمة · ربيع 2026",
+          },
+        },
+      ],
+      sections: [
+        {
+          title: {
+            en: "Problem",
+            ar: "المشكلة",
+          },
+          body: [
+            {
+              en: "Wasel Palestine was designed as an API-centric mobility platform for structured information about checkpoints, road incidents, crowdsourced reports, alerts, and route conditions. User-interface work was outside the course scope so the team could focus on backend architecture, APIs, data modeling, integrations, reliability, and performance.",
+              ar: "صُمم واصل فلسطين كمنصة تنقل تعتمد على الـ API لتقديم معلومات منظمة عن نقاط التفتيش والحوادث والبلاغات المجتمعية والتنبيهات وظروف المسارات. كانت واجهة المستخدم خارج نطاق المساق حتى يركز الفريق على بنية الباك إند والـ APIs ونمذجة البيانات والتكاملات والاعتمادية والأداء.",
+            },
+          ],
+        },
+        {
+          title: {
+            en: "Overall team project",
+            ar: "المشروع ككل — عمل الفريق",
+          },
+          body: [
+            {
+              en: "The team built a modular NestJS and TypeScript backend with versioned REST endpoints under /api/v1, TypeORM persistence targeting PostgreSQL, JWT-based authentication, DTO validation, external weather/routing integrations, Swagger/OpenAPI documentation, and Docker-based setup.",
+              ar: "بنى الفريق باك إند modular باستخدام NestJS وTypeScript مع REST endpoints بإصدار /api/v1، وTypeORM مع PostgreSQL، ومصادقة JWT، والتحقق عبر DTOs، وتكاملات للطقس والتوجيه، وتوثيق Swagger/OpenAPI، وإعداد عبر Docker.",
+            },
+            {
+              en: "Domain work across checkpoints, incidents, crowdsourced reporting/moderation, alerts, and broader testing belongs to the team project as a whole and is not presented here as work I completed alone.",
+              ar: "العمل على نقاط التفتيش والحوادث والبلاغات المجتمعية والإشراف والتنبيهات والاختبارات الأوسع هو جزء من عمل الفريق ككل، ولا أعرضه هنا على أنه عمل نفذته وحدي.",
+            },
+          ],
+        },
+        {
+          title: {
+            en: "Decision 1 — keep route intelligence in a computation layer",
+            ar: "القرار 1 — إبقاء ذكاء المسار في طبقة حساب مستقلة",
+          },
+          body: [
+            {
+              en: "I implemented the route-mobility feature as a computation layer rather than a new persistent route model. It can start from an external route estimate and then apply Wasel-specific factors such as route mode, nearby checkpoints, verified incidents, and requested avoid-areas.",
+              ar: "نفذت ميزة route-mobility كطبقة حساب بدلاً من إنشاء نموذج دائم جديد للمسارات. يمكن أن تبدأ من تقدير مسار خارجي ثم تطبق عوامل خاصة بواصل مثل نمط الرحلة ونقاط التفتيش القريبة والحوادث الموثقة والمناطق المطلوب تجنبها.",
+            },
+            {
+              en: "Reasoning: route estimates are derived from current mobility conditions, so calculating them from existing data keeps the feature separate from storage concerns. Trade-off: the local fallback is heuristic and does not claim road-graph-level accuracy.",
+              ar: "السبب: تقدير المسار مشتق من ظروف التنقل الحالية، لذلك حسابه من البيانات الموجودة يفصل الميزة عن مخاوف التخزين. المقابل: البديل المحلي heuristic ولا يدعي دقة خريطة طرق كاملة.",
+            },
+          ],
+        },
+        {
+          title: {
+            en: "Decision 2 — isolate external routing and fail gracefully",
+            ar: "القرار 2 — عزل خدمة التوجيه الخارجية والتعامل الآمن مع فشلها",
+          },
+          body: [
+            {
+              en: "I integrated OpenRouteService behind the external API layer instead of coupling route logic directly to the provider. The integration uses environment-based configuration, cached route responses, configurable timeouts, and a local heuristic fallback when the provider is unavailable or not configured.",
+              ar: "دمجت OpenRouteService خلف طبقة الـ external API بدلاً من ربط منطق المسارات مباشرة بالمزوّد. يستخدم التكامل إعدادات من متغيرات البيئة ونتائج routes مخزنة مؤقتاً وtimeouts قابلة للإعداد وبديل heuristic محلي عندما تكون الخدمة غير متاحة أو غير مهيأة.",
+            },
+            {
+              en: "Reasoning: an external routing provider can be slow, unavailable, or quota-limited. The trade-off is reduced precision during fallback, but the route-estimation request can still return a useful result instead of failing completely.",
+              ar: "السبب: مزود التوجيه الخارجي قد يكون بطيئاً أو غير متاح أو محدوداً بالحصص. المقابل هو دقة أقل أثناء استخدام البديل، لكن طلب تقدير المسار يستطيع إرجاع نتيجة مفيدة بدلاً من الفشل الكامل.",
+            },
+          ],
+        },
+        {
+          title: {
+            en: "Decision 3 — validate inputs and document the API boundary",
+            ar: "القرار 3 — التحقق من المدخلات وتوثيق حدود الـ API",
+          },
+          body: [
+            {
+              en: "The route work uses typed DTOs with class-validator constraints for geographic inputs, alongside the project’s global validation pipe. I also contributed Swagger documentation around route-mobility endpoints and DTOs so API expectations are visible in generated documentation.",
+              ar: "يستخدم عمل المسارات DTOs typed مع قيود class-validator للمدخلات الجغرافية إلى جانب validation pipe العام للمشروع. كما ساهمت في توثيق Swagger حول endpoints وDTOs المرتبطة بـ route-mobility حتى تكون توقعات الـ API واضحة في التوثيق المولد.",
+            },
+            {
+              en: "Reasoning: rejecting malformed input before business logic runs makes the service easier to reason about and test. Trade-off: DTO and documentation decorators add boilerplate, but keep validation rules and API contracts explicit.",
+              ar: "السبب: رفض المدخلات غير الصالحة قبل وصولها إلى منطق العمل يجعل الخدمة أوضح وأسهل للاختبار. المقابل هو بعض الـ boilerplate في DTOs وdecorators، لكنه يبقي قواعد التحقق وعقد الـ API صريحة.",
+            },
+          ],
+        },
+        {
+          title: {
+            en: "Result and limitations",
+            ar: "النتيجة والحدود",
+          },
+          body: [
+            {
+              en: "The resulting route endpoint can combine an external driving estimate with Wasel-specific mobility factors and explain the factors that affected the result. The repository also contains team-level automated and k6 performance tests, but those are not attributed to me individually.",
+              ar: "يمكن لـ endpoint المسارات الناتج دمج تقدير قيادة خارجي مع عوامل التنقل الخاصة بواصل وشرح العوامل التي أثرت في النتيجة. يحتوي المستودع أيضاً على اختبارات آلية واختبارات أداء k6 على مستوى الفريق، لكنني لا أنسبها إلى نفسي بشكل فردي.",
+            },
+            {
+              en: "The route fallback is deliberately heuristic, and the project is presented as university backend engineering evidence rather than as a production navigation service.",
+              ar: "البديل الخاص بالمسارات heuristic بشكل مقصود، ويُعرض المشروع كدليل على هندسة باك إند جامعية وليس كخدمة ملاحة جاهزة للإنتاج.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: "clothing-ecommerce-template",
     title: {
       en: "Clothing E-commerce Template",
