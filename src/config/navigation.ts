@@ -9,6 +9,13 @@ export const navigation = [
     },
   },
   {
+    href: "#projects",
+    label: {
+      en: "Projects",
+      ar: "المشاريع",
+    },
+  },
+  {
     href: "#skills",
     label: {
       en: "Skills",
@@ -20,13 +27,6 @@ export const navigation = [
     label: {
       en: "Certificates",
       ar: "الشهادات",
-    },
-  },
-  {
-    href: "#projects",
-    label: {
-      en: "Projects",
-      ar: "المشاريع",
     },
   },
   {

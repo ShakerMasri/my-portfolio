@@ -3,6 +3,24 @@ import type { SkillCategory } from "@/types/portfolio";
 export const skillCategories = [
   {
     title: {
+      en: "Backend and data",
+      ar: "الباك إند والبيانات",
+    },
+    description: {
+      en: "Server-side work demonstrated through full-stack projects, including validation, persistence, authentication, and transactional logic.",
+      ar: "عمل على السيرفر مطبّق في مشاريع Full-stack، ويشمل التحقق، تخزين البيانات، المصادقة، والمنطق المرتبط بالمعاملات.",
+    },
+    skills: [
+      "Server-side validation",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Authentication flows",
+      "Transactional logic",
+      "Environment configuration",
+    ],
+  },
+  {
+    title: {
       en: "Frontend and UI",
       ar: "الواجهة وتجربة المستخدم",
     },
@@ -21,20 +39,20 @@ export const skillCategories = [
   },
   {
     title: {
-      en: "Backend and data",
-      ar: "الباك إند والبيانات",
+      en: "Engineering tools and quality",
+      ar: "أدوات الهندسة والجودة",
     },
     description: {
-      en: "Server-side foundations demonstrated through full-stack project work.",
-      ar: "أساسيات السيرفر والبيانات التي أطبقها من خلال مشاريع Full-stack حقيقية.",
+      en: "Tools and practices used to keep changes typed, testable, reviewable, and maintainable.",
+      ar: "أدوات وممارسات تساعد على إبقاء التغييرات مقيّدة بالأنواع، قابلة للاختبار والمراجعة والصيانة.",
     },
     skills: [
-      "Server-side validation",
-      "Prisma ORM",
-      "PostgreSQL",
-      "Authentication flows",
-      "Transactional logic",
-      "Environment configuration",
+      "Git & GitHub",
+      "Typed configuration",
+      "Step-by-step delivery",
+      "ESLint",
+      "TypeScript type checking",
+      "Vitest / Playwright",
     ],
   },
   {
@@ -52,25 +70,6 @@ export const skillCategories = [
       "Keyboard-friendly navigation",
       "Visible focus states",
       "Readable content structure",
-    ],
-  },
-  {
-    title: {
-      en: "Workflow and quality",
-      ar: "أسلوب العمل والجودة",
-    },
-    description: {
-      en: "Habits and tools that keep changes reviewable, tested, and safe to improve step by step.",
-      ar: "عادات وأدوات تجعل التغييرات قابلة للمراجعة، الاختبار، والتحسين خطوة بخطوة.",
-    },
-    skills: [
-      "Git & GitHub",
-      "Typed configuration",
-      "Step-by-step delivery",
-      "ESLint",
-      "TypeScript type checking",
-      "Vitest / Playwright",
-      "AI-assisted development workflow",
     ],
   },
 ] as const satisfies readonly SkillCategory[];

@@ -3,12 +3,12 @@ import type { SiteConfig } from "@/types/portfolio";
 export const siteConfig = {
   name: "Shaker Al-Masri",
   title: {
-    en: "Shaker Al-Masri | Full-stack Web Developer",
-    ar: "شاكر المصري | مطوّر ويب Full-stack",
+    en: "Shaker Al-Masri | Backend-focused Software Engineer",
+    ar: "شاكر المصري | مهندس برمجيات يركّز على الباك إند",
   },
   description: {
-    en: "Professional portfolio for Shaker Al-Masri, a Computer Engineering student and full-stack web developer.",
-    ar: "ملف شخصي احترافي لشاكر المصري، طالب هندسة حاسوب ومطوّر ويب Full-stack.",
+    en: "Portfolio of Shaker Al-Masri, a final-year Computer Engineering student focused on backend/software engineering who also builds full-stack applications.",
+    ar: "الملف الشخصي لشاكر المصري، طالب هندسة حاسوب في السنة الأخيرة يركّز على هندسة البرمجيات والباك إند ويطوّر أيضاً تطبيقات Full-stack.",
   },
   url: "https://shakerweb.com",
   defaultLocale: "en",
