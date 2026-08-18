@@ -30,8 +30,7 @@ const pageCopy = {
     techLabel: "Tech stack",
     highlightsLabel: "Homepage highlights",
     supplementaryLabel: "Supporting project details",
-    noScreenshots:
-      "Screenshots and a short walkthrough can be added later after the project is recorded cleanly.",
+
     videoFallback: "Your browser does not support embedded videos.",
     openScreenshotLabel: "Open full screenshot",
   },
@@ -143,7 +142,9 @@ type ProjectScreenshotGalleryProps = Readonly<{
 type ScreenshotGalleryCardProps = Readonly<{
   locale: Locale;
   openScreenshotLabel: string;
-  screenshot: NonNullable<ProjectCaseStudyMedia["screenshots"]>["images"][number];
+  screenshot: NonNullable<
+    ProjectCaseStudyMedia["screenshots"]
+  >["images"][number];
   variant: "featured" | "secondary" | "compact";
 }>;
 
@@ -318,7 +319,6 @@ function ScreenshotGalleryCard({
     </a>
   );
 }
-
 
 function DeviceVideoFrame({
   locale,
@@ -631,13 +631,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </Reveal>
 
-              {!caseStudy.media && (
-                <Reveal delayMs={200}>
-                  <div className="rounded-3xl border border-dashed border-purple-200 bg-purple-50/70 p-6 text-sm leading-6 text-purple-950 shadow-sm shadow-purple-950/5 dark:border-purple-400/30 dark:bg-purple-400/10 dark:text-purple-100 dark:shadow-black/20">
-                    {copy.noScreenshots}
-                  </div>
-                </Reveal>
-              )}
+              {!caseStudy.media && <Reveal delayMs={200}></Reveal>}
             </aside>
           </div>
         </Container>
