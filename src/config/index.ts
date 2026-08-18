@@ -1,4 +1,5 @@
 export { certifications } from "./certifications";
+export { education } from "./education";
 export { navigation } from "./navigation";
 export { profile } from "./profile";
 export { projects } from "./projects";
