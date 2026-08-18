@@ -31,6 +31,10 @@ export function generateStaticParams() {
   return siteConfig.supportedLocales.map((locale) => ({ locale }));
 }
 
+function getOpenGraphLocale(locale: (typeof siteConfig.supportedLocales)[number]) {
+  return locale === "ar" ? "ar_PS" : "en_US";
+}
+
 export async function generateMetadata({
   params,
 }: Pick<LocaleLayoutProps, "params">): Promise<Metadata> {
@@ -39,6 +43,13 @@ export async function generateMetadata({
 
   const title = siteConfig.title[locale];
   const description = siteConfig.description[locale];
+  const languageAlternates = Object.fromEntries([
+    ...siteConfig.supportedLocales.map(
+      (supportedLocale) =>
+        [supportedLocale, `/${supportedLocale}`] as const,
+    ),
+    ["x-default", `/${siteConfig.defaultLocale}`] as const,
+  ]);
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -57,12 +68,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `/${locale}`,
-      languages: Object.fromEntries(
-        siteConfig.supportedLocales.map((supportedLocale) => [
-          supportedLocale,
-          `/${supportedLocale}`,
-        ]),
-      ),
+      languages: languageAlternates,
     },
     openGraph: {
       title,
@@ -70,10 +76,10 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       type: "website",
       url: `/${locale}`,
-      locale,
-      alternateLocale: siteConfig.supportedLocales.filter(
-        (supportedLocale) => supportedLocale !== locale,
-      ),
+      locale: getOpenGraphLocale(locale),
+      alternateLocale: siteConfig.supportedLocales
+        .filter((supportedLocale) => supportedLocale !== locale)
+        .map(getOpenGraphLocale),
     },
     twitter: {
       card: "summary",

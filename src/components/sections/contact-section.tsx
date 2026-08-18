@@ -11,14 +11,14 @@ type ContactSectionProps = Readonly<{
 const contactCopy = {
   en: {
     eyebrow: "Contact",
-    title: "Let’s talk about software engineering opportunities and practical web systems.",
+    title: "Open to junior software engineering opportunities and meaningful technical collaboration.",
     description:
-      "A simple, direct contact area for professional conversations. For now, contact stays link-based instead of using a form, keeping the site simple, privacy-friendly, and easier to secure.",
+      "I’m especially interested in backend and full-stack roles, internships, graduate opportunities, and collaboration on technically meaningful software projects.",
     contextTitle: "Good reasons to reach out",
     contextItems: [
-      "Backend and software engineering opportunities",
-      "Full-stack development roles or project collaboration",
-      "Collaboration around practical software and Computer Engineering ideas",
+      "Junior backend and software engineering roles",
+      "Full-stack, internship, and graduate opportunities",
+      "Collaboration on technically meaningful software projects",
     ],
     linksTitle: "Public contact links",
     emptyTitle: "Contact links are not configured yet.",
@@ -38,14 +38,14 @@ const contactCopy = {
   },
   ar: {
     eyebrow: "تواصل",
-    title: "لنتحدث عن فرص هندسة البرمجيات وأنظمة ويب عملية.",
+    title: "منفتح على فرص هندسة برمجيات للمستوى المبتدئ وتعاون تقني هادف.",
     description:
-      "قسم تواصل بسيط ومباشر للمحادثات المهنية. حالياً يبقى التواصل عبر الروابط بدل نموذج تواصل، حتى يبقى الموقع بسيطاً، أفضل للخصوصية، وأسهل في التأمين.",
+      "أهتم خصوصاً بأدوار الباك إند وFull-stack، وفرص التدريب والتخرج، إضافة إلى التعاون في مشاريع برمجية ذات تحديات تقنية واضحة.",
     contextTitle: "أسباب مناسبة للتواصل",
     contextItems: [
-      "فرص في هندسة البرمجيات والباك إند",
-      "أدوار Full-stack أو تعاون في مشاريع برمجية",
-      "تعاون حول أفكار برمجية وعملية مرتبطة بهندسة الحاسوب",
+      "أدوار هندسة برمجيات وباك إند للمستوى المبتدئ",
+      "فرص Full-stack والتدريب والفرص المخصصة للخريجين",
+      "التعاون في مشاريع برمجية ذات قيمة تقنية واضحة",
     ],
     linksTitle: "روابط التواصل العامة",
     emptyTitle: "روابط التواصل غير مضافة حالياً.",
